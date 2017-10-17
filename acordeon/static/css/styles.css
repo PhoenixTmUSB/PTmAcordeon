@@ -164,4 +164,8 @@ html,body{
     cursor: pointer;
     background: gray;
 }
+
+div.stage{
+width: 100% !important;
+}
 /* Body styles end */
