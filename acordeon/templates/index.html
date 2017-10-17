@@ -1,14 +1,15 @@
+{% load staticfiles %}
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-        <title>Phonenix Group Editor</title>
-        <link rel="stylesheet" href="src/css/bootstrap.min.css">
-        <link rel="stylesheet" href="src/css/font-awesome.min.css">
-        <link rel="stylesheet" href="src/css/ionicons.min.css">
-        <link rel="stylesheet" href="src/css/jquery.ui.ruler.css">
-        <link rel="stylesheet" href="src/css/styles.css">
+        <title> Phoenix Team | Editor</title>
+        <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/jquery.ui.ruler.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     </head>
-    
+
     <body class="container-fluid">
         <div class="row">
             <div class="col-lg 12 header-tools">
@@ -21,7 +22,7 @@
                 </ul>
             </div>
         </div>
-    
+
         <div class="body-tools">
             <div class="row">
                 <div class="col-lg-1 left-lateral-bar">
@@ -36,7 +37,10 @@
                 </div>
                 <div class="col-lg-10 body-tools">
                     <!-- Middle canvas -->
-                    <div class="body-canvas"></div>
+                    <div class="body-canvas">
+                      {% block content %}
+                      {% endblock %}
+                    </div>
                 </div>
                 <div class="col-lg-1 right-lateral-bar">
                     <!-- Right nav bar -->
@@ -68,10 +72,10 @@
             </div>
         </div>
 
-        <script src="src/js/jquery-3.2.1.min.js"></script>
-        <script src="src/js/bootstrap.min.js"></script>
-        <script src="src/js/jquery-ui.min.js"></script>
-        <script src="src/js/jquery.ui.ruler.js"></script>
+        <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/jquery-ui.min.js' %}"></script>
+        <script src="{% static 'js/jquery.ui.ruler.js' %}"></script>
         <script language="JavaScript">
             $(document).ready(function () {
                 $('.body-canvas').ruler();
