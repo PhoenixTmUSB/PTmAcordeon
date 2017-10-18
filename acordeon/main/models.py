@@ -20,5 +20,4 @@ class Accordion(models.Model):
     sections = models.ManyToManyField(
         'Accordion',
         blank=True,
-        on_delete=models.CASCADE
     )
