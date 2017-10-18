@@ -2,7 +2,7 @@
 
 1. Hacer pip install para tener las apps necesarias
 ```
-pip install -r requiremets.txt
+pip install -r requirements.txt
 ```
 
 2. Crear base de datos en el shell de postgres
