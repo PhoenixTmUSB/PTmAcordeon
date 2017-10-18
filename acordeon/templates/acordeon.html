@@ -3,8 +3,9 @@
 {% block content %}
 <div class="bs-example" width="100%">
     <div class="panel-group" id="accordion">
-    	<!-- For variable entera hacer include con datos -->
-    	{% include "panel_acordeon.html" %}
+    	{% for acordeon in list %}
+            {% include "panel_acordeon.html" with acordeon=acordeon nombrecualquiera=forloop.first only %}
+        {% endfor %}
     </div>
 
 </div>

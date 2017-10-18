@@ -32,3 +32,11 @@ GRANT ALL PRIVILEGES ON DATABASE db_phoenix TO ptmadmin;
 python manage.py makemigrations
 python manage.py migrate
 ```
+
+4. Extra
+```
+Si les da error en migraciones agregar null=True a el field name en main.models.AccordionAbstract
+Hacer las migraciones
+Quitar null=True
+Magic!
+```
