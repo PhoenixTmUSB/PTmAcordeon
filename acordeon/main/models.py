@@ -1,5 +1,7 @@
 from django.db import models
+
 from decimal import Decimal
+
 
 
 class AccordionAbstract(models.Model):
@@ -7,7 +9,7 @@ class AccordionAbstract(models.Model):
     title = models.CharField(max_length=50, blank=True, null=True)
     title_style = models.TextField(blank=True, null=True)
     content = models.TextField(blank=True, null=True)
-    contet_style = models.TextField(blank=True, null=True)
+    content_style = models.TextField(blank=True, null=True)
     width = models.CharField(max_length=50, blank=True, null=True)
     height = models.CharField(max_length=50, blank=True, null=True)
     style = models.TextField(blank=True, null=True)
