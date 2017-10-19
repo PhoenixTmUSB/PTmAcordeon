@@ -1,11 +1,11 @@
-### Realiza pruebas unitarias a los models
-## Se asume que el modelo Accordion y SubAccordion existen
+# Realiza pruebas unitarias a los models
+# Se asume que el modelo Accordion y SubAccordion existen
 from django.test import TestCase
 
 from main.models import Accordion, SubAccordion
 
 
-## Realiza pruebas enfocadas en el modelo Acordeon
+# Realiza pruebas enfocadas en el modelo Acordeon
 class TestAcordeon(TestCase):
     def setUp(self):
         # Accordion.objects.create()
@@ -148,7 +148,7 @@ class TestAcordeon(TestCase):
         self.assertTrue(acordeones_hijos[1].name == "hola_ch2")
 
 
-## Realiza pruebas enfocadas en el modelo sub acordeon
+# Realiza pruebas enfocadas en el modelo sub acordeon
 class TestSubAcordeon(TestCase):
     def setUp(self):
         self.acordeon_mdl_padre = Accordion(name="hola_pa")

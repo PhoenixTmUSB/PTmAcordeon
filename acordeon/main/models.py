@@ -1,5 +1,27 @@
+from django.contrib.auth.models import User
 from django.db import models
 from decimal import Decimal
+
+
+# Abstracción de un proyecto creado por el usuario
+# Un proyecto puede contener distintos patrones / solo 1 de cada 1
+class Project(models.Model):
+    # Usuario creador/Editor del proyecto
+    owner = models.ForeignKey(User, null=False, on_delete=models.CASCADE)
+    # Nombre del proyecto
+    # Nota: Default solo aplica a filas anteriores al migrate
+    name = models.CharField(max_length=50, blank=False, default='proyecto')
+    # fecha_creacion = models.
+    # fecha_ultima_edicion = models.
+
+    # Acordion que esta editando el usuario
+    # Guardará la referencia al acordeon que cree el usuario
+    acordion = models.ForeignKey(
+        User,
+        null=False,
+        on_delete=models.CASCADE,
+        related_name="project_acordion"
+    )
 
 
 class AccordionAbstract(models.Model):
