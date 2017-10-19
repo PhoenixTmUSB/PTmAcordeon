@@ -2,11 +2,11 @@
 ## Se asume que el modelo Accordion y SubAccordion existen
 from django.test import TestCase
 
-from .models import Accordion, SubAccordion
+from main.models import Accordion, SubAccordion
 
 
 ## Realiza pruebas enfocadas en el modelo Acordeon
-class PruebaAcordeon(TestCase):
+class TestAcordeon(TestCase):
     def setUp(self):
         # Accordion.objects.create()
         pass
@@ -30,15 +30,17 @@ class PruebaAcordeon(TestCase):
         )
         acordeon_mdl.save()
 
-        acordeon_mdl2 = Accordion.objects.get(name="nombre",
-                                              title="titulo",
-                                              title_style="titulo_estilo",
-                                              content="contenido",
-                                              contet_style="contenido_estilo",
-                                              width="123",
-                                              height="987",
-                                              style="estilo"
-                                              )
+        acordeon_mdl2 = Accordion.objects.get(
+            name="nombre",
+            title="titulo",
+            title_style="titulo_estilo",
+            content="contenido",
+            contet_style="contenido_estilo",
+            width="123",
+            height="987",
+            style="estilo"
+        )
+
         self.assertEqual(acordeon_mdl.name, acordeon_mdl2.name)
         self.assertEqual(acordeon_mdl.title, acordeon_mdl2.title)
         self.assertEqual(acordeon_mdl.title_style, acordeon_mdl2.title_style)
@@ -50,7 +52,6 @@ class PruebaAcordeon(TestCase):
 
     def test_crear_dos_acordeon_bd(self):
         """Se pueden crear más de un acordeon"""
-
         acordeon_mdl1 = Accordion(
             name="nombre",
             title="titulo",
@@ -63,15 +64,17 @@ class PruebaAcordeon(TestCase):
         )
         acordeon_mdl1.save()
 
-        acordeon_mdl1_bd = Accordion.objects.get(name="nombre",
-                                                 title="titulo",
-                                                 title_style="titulo_estilo",
-                                                 content="contenido",
-                                                 contet_style="contenido_estilo",
-                                                 width="123",
-                                                 height="987",
-                                                 style="estilo"
-                                                 )
+        acordeon_mdl1_bd = Accordion.objects.get(
+            name="nombre",
+            title="titulo",
+            title_style="titulo_estilo",
+            content="contenido",
+            contet_style="contenido_estilo",
+            width="123",
+            height="987",
+            style="estilo"
+        )
+
         self.assertEqual(acordeon_mdl1.name, acordeon_mdl1_bd.name)
         self.assertEqual(acordeon_mdl1.title, acordeon_mdl1_bd.title)
         self.assertEqual(acordeon_mdl1.title_style, acordeon_mdl1_bd.title_style)
@@ -93,15 +96,17 @@ class PruebaAcordeon(TestCase):
         )
         acordeon_mdl2.save()
 
-        acordeon_mdl2_bd = Accordion.objects.get(name="nombre2",
-                                                 title="titulo2",
-                                                 title_style="titulo_estilo2",
-                                                 content="contenido2",
-                                                 contet_style="contenido_estilo2",
-                                                 width="1232",
-                                                 height="9872",
-                                                 style="estilo2"
-                                                 )
+        acordeon_mdl2_bd = Accordion.objects.get(
+            name="nombre2",
+            title="titulo2",
+            title_style="titulo_estilo2",
+            content="contenido2",
+            contet_style="contenido_estilo2",
+            width="1232",
+            height="9872",
+            style="estilo2"
+        )
+
         self.assertEqual(acordeon_mdl2.name, acordeon_mdl2_bd.name)
         self.assertEqual(acordeon_mdl2.title, acordeon_mdl2_bd.title)
         self.assertEqual(acordeon_mdl2.title_style, acordeon_mdl2_bd.title_style)
@@ -144,7 +149,7 @@ class PruebaAcordeon(TestCase):
 
 
 ## Realiza pruebas enfocadas en el modelo sub acordeon
-class PruebaSubAcordeon(TestCase):
+class TestSubAcordeon(TestCase):
     def setUp(self):
         self.acordeon_mdl_padre = Accordion(name="hola_pa")
         self.acordeon_mdl_padre.save()
