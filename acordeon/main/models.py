@@ -16,7 +16,7 @@ class AccordionAbstract(models.Model):
 
 
 class Accordion(AccordionAbstract):
-    def get_name_for_id(self):
+    def get_identificador(self):
         return 'ac{}{}'.format(
             self.name.replace(' ', '').lower(),
             self.id
@@ -31,7 +31,7 @@ class Accordion(AccordionAbstract):
 class SubAccordion(AccordionAbstract):
     acordeon_padre = models.ForeignKey('Accordion', on_delete=models.CASCADE, default=None)
 
-    def get_name_for_id(self):
+    def get_identificador(self):
         return 'sac{}{}_{}'.format(
             self.name.replace(' ', '').lower(),
             self.acordeon_padre.id,
