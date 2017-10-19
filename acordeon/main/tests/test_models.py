@@ -23,7 +23,7 @@ class TestAcordeon(TestCase):
             title="titulo",
             title_style="titulo_estilo",
             content="contenido",
-            contet_style="contenido_estilo",
+            content_style="contenido_estilo",
             width="123",
             height="987",
             style="estilo",
@@ -35,7 +35,7 @@ class TestAcordeon(TestCase):
             title="titulo",
             title_style="titulo_estilo",
             content="contenido",
-            contet_style="contenido_estilo",
+            content_style="contenido_estilo",
             width="123",
             height="987",
             style="estilo"
@@ -45,7 +45,7 @@ class TestAcordeon(TestCase):
         self.assertEqual(acordeon_mdl.title, acordeon_mdl2.title)
         self.assertEqual(acordeon_mdl.title_style, acordeon_mdl2.title_style)
         self.assertEqual(acordeon_mdl.content, acordeon_mdl2.content)
-        self.assertEqual(acordeon_mdl.contet_style, acordeon_mdl2.contet_style)
+        self.assertEqual(acordeon_mdl.content_style, acordeon_mdl2.content_style)
         self.assertEqual(acordeon_mdl.width, acordeon_mdl2.width)
         self.assertEqual(acordeon_mdl.height, acordeon_mdl2.height)
         self.assertEqual(acordeon_mdl.style, acordeon_mdl2.style)
@@ -57,7 +57,7 @@ class TestAcordeon(TestCase):
             title="titulo",
             title_style="titulo_estilo",
             content="contenido",
-            contet_style="contenido_estilo",
+            content_style="contenido_estilo",
             width="123",
             height="987",
             style="estilo",
@@ -69,7 +69,7 @@ class TestAcordeon(TestCase):
             title="titulo",
             title_style="titulo_estilo",
             content="contenido",
-            contet_style="contenido_estilo",
+            content_style="contenido_estilo",
             width="123",
             height="987",
             style="estilo"
@@ -79,7 +79,7 @@ class TestAcordeon(TestCase):
         self.assertEqual(acordeon_mdl1.title, acordeon_mdl1_bd.title)
         self.assertEqual(acordeon_mdl1.title_style, acordeon_mdl1_bd.title_style)
         self.assertEqual(acordeon_mdl1.content, acordeon_mdl1_bd.content)
-        self.assertEqual(acordeon_mdl1.contet_style, acordeon_mdl1_bd.contet_style)
+        self.assertEqual(acordeon_mdl1.content_style, acordeon_mdl1_bd.content_style)
         self.assertEqual(acordeon_mdl1.width, acordeon_mdl1_bd.width)
         self.assertEqual(acordeon_mdl1.height, acordeon_mdl1_bd.height)
         self.assertEqual(acordeon_mdl1.style, acordeon_mdl1_bd.style)
@@ -89,7 +89,7 @@ class TestAcordeon(TestCase):
             title="titulo2",
             title_style="titulo_estilo2",
             content="contenido2",
-            contet_style="contenido_estilo2",
+            content_style="contenido_estilo2",
             width="1232",
             height="9872",
             style="estilo2",
@@ -101,7 +101,7 @@ class TestAcordeon(TestCase):
             title="titulo2",
             title_style="titulo_estilo2",
             content="contenido2",
-            contet_style="contenido_estilo2",
+            content_style="contenido_estilo2",
             width="1232",
             height="9872",
             style="estilo2"
@@ -111,7 +111,7 @@ class TestAcordeon(TestCase):
         self.assertEqual(acordeon_mdl2.title, acordeon_mdl2_bd.title)
         self.assertEqual(acordeon_mdl2.title_style, acordeon_mdl2_bd.title_style)
         self.assertEqual(acordeon_mdl2.content, acordeon_mdl2_bd.content)
-        self.assertEqual(acordeon_mdl2.contet_style, acordeon_mdl2_bd.contet_style)
+        self.assertEqual(acordeon_mdl2.content_style, acordeon_mdl2_bd.content_style)
         self.assertEqual(acordeon_mdl2.width, acordeon_mdl2_bd.width)
         self.assertEqual(acordeon_mdl2.height, acordeon_mdl2_bd.height)
         self.assertEqual(acordeon_mdl2.style, acordeon_mdl2_bd.style)
@@ -174,7 +174,7 @@ class TestSubAcordeon(TestCase):
             title="titulo",
             title_style="titulo_estilo",
             content="contenido",
-            contet_style="contenido_estilo",
+            content_style="contenido_estilo",
             width="123",
             height="987",
             style="estilo", acordeon_padre=self.acordeon_mdl_padre
@@ -186,7 +186,7 @@ class TestSubAcordeon(TestCase):
             title="titulo",
             title_style="titulo_estilo",
             content="contenido",
-            contet_style="contenido_estilo",
+            content_style="contenido_estilo",
             width="123",
             height="987",
             style="estilo", acordeon_padre=self.acordeon_mdl_padre
@@ -195,7 +195,7 @@ class TestSubAcordeon(TestCase):
         self.assertEqual(subacordeon_mdl.title, subacordeon_mdl2.title)
         self.assertEqual(subacordeon_mdl.title_style, subacordeon_mdl2.title_style)
         self.assertEqual(subacordeon_mdl.content, subacordeon_mdl2.content)
-        self.assertEqual(subacordeon_mdl.contet_style, subacordeon_mdl2.contet_style)
+        self.assertEqual(subacordeon_mdl.content_style, subacordeon_mdl2.content_style)
         self.assertEqual(subacordeon_mdl.width, subacordeon_mdl2.width)
         self.assertEqual(subacordeon_mdl.height, subacordeon_mdl2.height)
         self.assertEqual(subacordeon_mdl.style, subacordeon_mdl2.style)

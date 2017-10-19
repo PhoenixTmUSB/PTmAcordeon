@@ -54,7 +54,7 @@
 #         acordeon_mdl1 = Accordion(
 #             name="nombre acordeon 1",
 #             content="Contenido del Acordeon 1",
-#             contet_style='color:azure;',
+#             content_style='color:azure;',
 #             title="Titulo del Acordeon 1",
 #             title_style="color:red;",
 #             width='320px',
@@ -66,7 +66,7 @@
 #         acordeon_mdl2 = Accordion(
 #             name="nombre acordeon 2",
 #             content="Contenido del Acordeon 2",
-#             contet_style='color:gray;',
+#             content_style='color:gray;',
 #             title="Titulo del Acordeon 2",
 #             title_style="color:black;",
 #             width='321px',

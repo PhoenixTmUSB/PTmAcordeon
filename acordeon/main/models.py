@@ -1,4 +1,5 @@
 from django.db import models
+from decimal import Decimal
 
 
 class AccordionAbstract(models.Model):
@@ -6,7 +7,7 @@ class AccordionAbstract(models.Model):
     title = models.CharField(max_length=50, blank=True, default='')
     title_style = models.TextField(blank=True, default='')
     content = models.TextField(blank=True, default='')
-    contet_style = models.TextField(blank=True, default='')
+    content_style = models.TextField(blank=True, default='')
     width = models.CharField(max_length=50, blank=True, default='')
     height = models.CharField(max_length=50, blank=True, default='')
     style = models.TextField(blank=True, default='')
@@ -32,8 +33,13 @@ class Accordion(AccordionAbstract):
         else:
             return "Acordeon #" + str(self.id)
 
+
 class SubAccordion(AccordionAbstract):
-    acordeon_padre = models.ForeignKey('Accordion', on_delete=models.CASCADE, default=None)
+    acordeon_padre = models.ForeignKey(
+        'Accordion',
+        on_delete=models.CASCADE,
+        default=None
+    )
 
     def get_identificador(self):
         return 'sac{}{}_{}'.format(
