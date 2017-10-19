@@ -13,7 +13,4 @@ class PruebaIndexView(TestCase):
 class PruebaAcordeonView(TestCase):
     def test_acordeon_funcionando(self):
         response = self.client.get('/acordeon/')
-        # a = open('asd.html','wb')
-        # a.write(response.content)
-        # a.close()
         self.assertEqual(response.status_code, 200)

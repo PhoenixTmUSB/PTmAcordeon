@@ -15,7 +15,7 @@
             {% endif %}
                     <div class="panel-body">
                         <p> {{ acordeon.content|safe | default:"Paragraph" }} </p>
-                        {% for sub_acc in acordeon.sub_accordions.all %}
+                        {% for sub_acc in acordeon.subaccordion_set.all %}
                             {% include "panel_acordeon.html" with acordeon=sub_acc nombrecualquiera=forloop.first only %}
                         {% endfor %}
                     </div>
