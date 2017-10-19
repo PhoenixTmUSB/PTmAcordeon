@@ -1,8 +1,5 @@
 from django.db import models
 
-from decimal import Decimal
-
-
 
 class AccordionAbstract(models.Model):
     name = models.CharField(max_length=50, unique=True, null=True)
