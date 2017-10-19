@@ -1,39 +1,45 @@
 from django.db import models
-from decimal import Decimal
 
 
 class AccordionAbstract(models.Model):
-    name = models.CharField(max_length=50, unique=True, null=True)
-    title = models.CharField(max_length=50, blank=True, null=True)
-    title_style = models.TextField(blank=True, null=True)
-    content = models.TextField(blank=True, null=True)
-    contet_style = models.TextField(blank=True, null=True)
-    width = models.CharField(max_length=50, blank=True, null=True)
-    height = models.CharField(max_length=50, blank=True, null=True)
-    style = models.TextField(blank=True, null=True)
+    name = models.CharField(max_length=50, blank=True, default='')
+    title = models.CharField(max_length=50, blank=True, default='')
+    title_style = models.TextField(blank=True, default='')
+    content = models.TextField(blank=True, default='')
+    contet_style = models.TextField(blank=True, default='')
+    width = models.CharField(max_length=50, blank=True, default='')
+    height = models.CharField(max_length=50, blank=True, default='')
+    style = models.TextField(blank=True, default='')
 
     class Meta:
         abstract = True
 
 
-class SubAccordion(AccordionAbstract):
-
-    def get_name_for_id(self):
-        return self.name.replace(" ", "")
-
-    def __str__(self):
-        return self.name
-
-
 class Accordion(AccordionAbstract):
-    sub_accordions = models.ManyToManyField(
-        SubAccordion,
-        blank=True,
-        related_name="accordion_sub_accordions"
-    )
-
     def get_name_for_id(self):
-        return self.name.replace(" ", "")
+        return 'ac{}{}'.format(
+            self.name.replace(' ', '').lower(),
+            self.id
+        )
 
     def __str__(self):
-        return self.name
+        if self.name:
+            return "Acordeon " + self.name
+        else:
+            return "Acordeon #" + str(self.id)
+
+class SubAccordion(AccordionAbstract):
+    acordeon_padre = models.ForeignKey('Accordion', on_delete=models.CASCADE, default=None)
+
+    def get_name_for_id(self):
+        return 'sac{}{}_{}'.format(
+            self.name.replace(' ', '').lower(),
+            self.acordeon_padre.id,
+            self.id
+        )
+
+    def __str__(self):
+        if self.name:
+            return "Sub Acordeon " + self.name
+        else:
+            return "Sub Acordeon #" + str(self.id)
