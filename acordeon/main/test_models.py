@@ -1,7 +1,5 @@
 ### Realiza pruebas unitarias a los models
 ## Se asume que el modelo Accordion y SubAccordion existen
-import django
-from django.db import IntegrityError
 from django.test import TestCase
 
 from .models import Accordion, SubAccordion
@@ -118,36 +116,39 @@ class PruebaAcordeon(TestCase):
         self.assertEqual(todos[1].name, 'nombre2')
 
     def test_create_dos_modelo_acordeon_guardar_bd_dos_campo_name_iguales(self):
-        """Modelo Acordeon no se puede guardar en la BD porque ya existe uno con el mismo nombre"""
+        """Comprueba que se puedan guardar dos acordeon con el mismo nombre y que generen distintos ID"""
         acordeon_mdl = Accordion(name="hola")
         acordeon_mdl.save()
 
         acordeon_mdl2 = Accordion(name="hola")
-        with self.assertRaises(django.db.utils.IntegrityError) as cm:
-            acordeon_mdl2.save()
+        acordeon_mdl2.save()
 
-        self.assertTrue(isinstance(cm.exception, IntegrityError))
+        self.assertTrue(acordeon_mdl.get_identificador() != acordeon_mdl2.get_identificador())
 
     def test_create_modelo_acordeon_con_sub_acordeon_guardar_bd(self):
-        """Un Acordeon puede tener un Sub Acordeon y se puede guardar en la BD"""
-        acordeon_mdl_child = SubAccordion(name="hola_ch")
-        acordeon_mdl_child.save()
+        """Un Acordeon puede tener Sub Acordeones y se pueden guardar en la BD"""
 
         acordeon_mdl_padre = Accordion(name="hola_pa")
         acordeon_mdl_padre.save()
 
-        acordeon_mdl_padre.sub_accordions.add(acordeon_mdl_child)
+        acordeon_mdl_child1 = SubAccordion(name="hola_ch1", acordeon_padre=acordeon_mdl_padre)
+        acordeon_mdl_child1.save()
 
-        acordeon_mdl_child_padre_bd = Accordion.objects.get(name="hola_pa")
-        acordeones_hijos = acordeon_mdl_child_padre_bd.sub_accordions.all()
+        acordeon_mdl_child2 = SubAccordion(name="hola_ch2", acordeon_padre=acordeon_mdl_padre)
+        acordeon_mdl_child2.save()
 
-        acordeon_child_bd = acordeones_hijos[0]
+        acordeones_hijos = SubAccordion.objects.filter(acordeon_padre=acordeon_mdl_padre).order_by('name')
 
-        self.assertTrue(acordeon_child_bd.name == "hola_ch")
+        self.assertTrue(acordeones_hijos[0].name == "hola_ch1")
+        self.assertTrue(acordeones_hijos[1].name == "hola_ch2")
 
 
 ## Realiza pruebas enfocadas en el modelo sub acordeon
 class PruebaSubAcordeon(TestCase):
+    def setUp(self):
+        self.acordeon_mdl_padre = Accordion(name="hola_pa")
+        self.acordeon_mdl_padre.save()
+
     def test_create_modelo_subacordeon_sin_argumentos(self):
         """Modelo Sub Acordeon Existe"""
         subacordeon_mdl = SubAccordion()
@@ -155,7 +156,7 @@ class PruebaSubAcordeon(TestCase):
 
     def test_create_modelo_subacordeon_guardar_bd_campo_name(self):
         """Modelo Acordeon se puede guardar en la BD"""
-        subacordeon_mdl = SubAccordion(name="hola")
+        subacordeon_mdl = SubAccordion(name="hola", acordeon_padre=self.acordeon_mdl_padre)
         subacordeon_mdl.save()
 
         acordeon_mdl2 = SubAccordion.objects.get(name="hola")
@@ -171,7 +172,7 @@ class PruebaSubAcordeon(TestCase):
             contet_style="contenido_estilo",
             width="123",
             height="987",
-            style="estilo",
+            style="estilo", acordeon_padre=self.acordeon_mdl_padre
         )
         subacordeon_mdl.save()
 
@@ -183,7 +184,7 @@ class PruebaSubAcordeon(TestCase):
             contet_style="contenido_estilo",
             width="123",
             height="987",
-            style="estilo"
+            style="estilo", acordeon_padre=self.acordeon_mdl_padre
         )
         self.assertEqual(subacordeon_mdl.name, subacordeon_mdl2.name)
         self.assertEqual(subacordeon_mdl.title, subacordeon_mdl2.title)
@@ -195,12 +196,11 @@ class PruebaSubAcordeon(TestCase):
         self.assertEqual(subacordeon_mdl.style, subacordeon_mdl2.style)
 
     def test_create_dos_modelo_acordeon_guardar_bd_dos_campo_name_iguales(self):
-        """Modelo Sub Acordeon no se puede guardar en la BD si existe otro Sub Acordeon con el mismo nombre"""
-        subacordeon_mdl = SubAccordion(name="hola")
+        """Prueba que dos Sub Acordeones se puedan guardar en la BD con el mismo nombre y generen distintos ID"""
+        subacordeon_mdl = SubAccordion(name="hola", acordeon_padre=self.acordeon_mdl_padre)
         subacordeon_mdl.save()
 
-        subacordeon_mdl2 = SubAccordion(name="hola")
-        with self.assertRaises(django.db.utils.IntegrityError) as cm:
-            subacordeon_mdl2.save()
+        subacordeon_mdl2 = SubAccordion(name="hola", acordeon_padre=self.acordeon_mdl_padre)
+        subacordeon_mdl2.save()
 
-        self.assertTrue(isinstance(cm.exception, IntegrityError))
+        self.assertTrue(subacordeon_mdl.get_identificador() != subacordeon_mdl2.get_identificador())
