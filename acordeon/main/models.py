@@ -11,6 +11,10 @@ class AccordionAbstract(models.Model):
     height = models.CharField(max_length=50, blank=True, default='')
     style = models.TextField(blank=True, default='')
 
+    def get_name_for_id(self):
+        "Remueve todos los caracteres especiales dejando [a-z0-9]"
+        return ''.join(e.lower() for e in self.name if e.isalnum())
+
     class Meta:
         abstract = True
 
@@ -18,13 +22,13 @@ class AccordionAbstract(models.Model):
 class Accordion(AccordionAbstract):
     def get_identificador(self):
         return 'ac{}{}'.format(
-            self.name.replace(' ', '').lower(),
+            self.get_name_for_id(),
             self.id
         )
 
     def __str__(self):
-        if self.name:
-            return "Acordeon " + self.name
+        if self.get_name_for_id():
+            return "Acordeon " + self.get_name_for_id()
         else:
             return "Acordeon #" + str(self.id)
 
@@ -33,13 +37,13 @@ class SubAccordion(AccordionAbstract):
 
     def get_identificador(self):
         return 'sac{}{}_{}'.format(
-            self.name.replace(' ', '').lower(),
+            self.get_name_for_id(),
             self.acordeon_padre.id,
             self.id
         )
 
     def __str__(self):
-        if self.name:
-            return "Sub Acordeon " + self.name
+        if self.get_name_for_id():
+            return "Sub Acordeon " + self.get_name_for_id()
         else:
             return "Sub Acordeon #" + str(self.id)
