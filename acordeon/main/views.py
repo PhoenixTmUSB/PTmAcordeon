@@ -10,3 +10,6 @@ def acordeon(request):
     context = {}
     context['list'] = a
     return render(request, 'acordeon.html', context)
+
+def crear_acordeon(request):
+    return render(request, 'crear_acordeon.html')
