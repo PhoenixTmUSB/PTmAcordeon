@@ -1,0 +1,22 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div>
+	{% for accordion in list %}
+        {% include "accordion.html" with accordion=accordion nombrecualquiera=forloop.first only %}
+    {% endfor %}
+</div>
+{% endblock %}
+{% block extraJS %}
+<script language="JavaScript">
+$(document).ready(function () {
+    $('.delete-button').click(function(event) {
+        event.preventDefault();
+        var opt = confirm("Seguro que quiere eliminar el accordeon seleccionado?");
+        if (opt){
+            location.href = $(this).attr('href');
+        }
+    });
+});
+</script>
+{% endblock %}
