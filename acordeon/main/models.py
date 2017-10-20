@@ -20,30 +20,36 @@ class AccordionAbstract(models.Model):
         max_length=50
     )
     title_style = models.TextField(
+        u'Estilos del Título',
         blank=True,
         null=True
     )
     content = models.TextField(
+        u'Contenido',
         blank=True,
         null=True
     )
     content_style = models.TextField(
+        u'Estilos del contenido',
         blank=True,
         null=True
     )
     width = models.CharField(
+        u'Ancho (%)',
         max_length=50,
         blank=True,
         null=True,
         default='100'
     )
     height = models.CharField(
+        u'Alto (px)',
         max_length=50,
         blank=True,
         null=True,
         default='30'
     )
     style = models.TextField(
+        u'Estilos generales',
         blank=True,
         null=True
     )

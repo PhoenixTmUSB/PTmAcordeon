@@ -29,18 +29,22 @@ html,body{
 
 .yellow-hover:hover{
     color: #ffff66;
+    cursor: pointer;
 }
 
 .blue-hover:hover{
     color: #1a66ff;
+    cursor: pointer;
 }
 
 .green-hover:hover{
     color: #b3ff66;
+    cursor: pointer;
 }
 
 .red-hover:hover{
     color: #ff6666;
+    cursor: pointer;
 }
 
 /* Header styles */
@@ -109,7 +113,7 @@ html,body{
     color: #F5F5F5;
 }
 
-.body-tools .left-lateral-bar a:hover li{
+.body-tools .left-lateral-bar li:hover{
     background-color: gray;
 }
 
