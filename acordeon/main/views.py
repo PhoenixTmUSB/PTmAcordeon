@@ -60,7 +60,8 @@ def accordionEdit(request, accordion_id):
     # Initialize context and search for accordion to edit
     context = {}
     accordion = get_object_or_404(Accordion, accordion_id=accordion_id)
-
+    context['accordion'] = accordion
+    
     if request.method == 'POST':
         form = AccordionForm(request.POST or None, instance=accordion)
         context['accordionForm'] = form

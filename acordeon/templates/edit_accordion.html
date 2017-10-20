@@ -1,7 +1,6 @@
 {% extends "index.html" %}
 {% load static bootstrap3 %}
-
-{% block content %}
+{% block content %} 
 <div class="col-md-5">
     <form id="accordion-create-form" method="POST" class="post-form" novalidate>
         {% csrf_token %}
@@ -10,6 +9,7 @@
     </form>
 </div>
 <div class="col-md-7">
- Accordion preview perhaps?
+ {% include 'accordion_preview.html' %}
 </div>
+
 {% endblock %}
