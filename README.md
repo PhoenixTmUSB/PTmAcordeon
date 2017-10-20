@@ -33,10 +33,3 @@ ALTER USER ptmadmin CREATEDB;
 python manage.py makemigrations
 python manage.py migrate
 ```
-
-4. Si les da error en migraciones agregar
-``` null=True``` al field **name** en **main.models.AccordionAbstract**
-
-Hacer las migraciones y quitar **null=True**
-Magic!
-
