@@ -12,7 +12,7 @@
                             </h4>
                     </div>
                 </a>
-                <div id="{{accordion.get_uuid_as_str}}" class="panel-collapse collapse" style="{{ child_panel.content_style }}">
+                <div id="{{accordion.get_uuid_as_str}}" class="panel-collapse collapse" style="{{ accordion.content_style }}">
                     <div class="panel-body">
                         <p> {{ accordion.content|safe | default:"Paragraph" }} </p>
                     </div>
@@ -23,8 +23,8 @@
         {% for child_panel in accordion.get_child_panels %}
             <div class="panel panel-default" style='width: {{child_panel.width}}%;{{child_panel.style}}'>
                 <a data-toggle="collapse" href="#{{ child_panel.get_uuid_as_str }}" data-parent="#accordion-{{accordion.get_uuid_as_str}}">
-                    <div class="panel-heading" style="{{ child_panel.title_style }}; height: {{ child_panel.height }}px">
-                        <h4 class="panel-title">
+                    <div class="panel-heading" style="height: {{ child_panel.height }}px;">
+                        <h4 class="panel-title" style="{{ child_panel.title_style }};">
                             {{ child_panel.title | default:"Link collapsable" }}
                         </h4>
                     </div>

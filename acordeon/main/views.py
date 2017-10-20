@@ -84,14 +84,7 @@ def accordionEdit(request, accordion_id):
         context['accordionFormEdit'] = form
 
         if form.is_valid():
-            panel_nro = form.cleaned_data['panels']
-            parent = form.save()
-
-            for i in range(0, panel_nro):
-                Accordion(
-                    title='Panel hijo',
-                    parent=parent
-                ).save()
+            form.save()
     else:
         context['accordionFormEdit'] = AccordionForm(instance=accordion)
 
