@@ -10,7 +10,7 @@
     HTML White              #FFFFFF     rgb(255,255,255)
 
     Yellow hover buttons    #ffff66
-    Blue hover buttons      #b3e6ff
+    Blue hover buttons      #1a66ff
     Green hover buttons     #b3ff66
     Red hover buttons       #ff6666
 
@@ -19,24 +19,32 @@ html,body{
     height: 100%;
 }
 
+.col-*{
+    padding: 0px !important;
+}
+
 .white-logo{
     color: #F5F5F5;
 }
 
 .yellow-hover:hover{
     color: #ffff66;
+    cursor: pointer;
 }
 
 .blue-hover:hover{
-    color: #b3e6ff;
+    color: #1a66ff;
+    cursor: pointer;
 }
 
 .green-hover:hover{
     color: #b3ff66;
+    cursor: pointer;
 }
 
 .red-hover:hover{
     color: #ff6666;
+    cursor: pointer;
 }
 
 /* Header styles */
@@ -72,11 +80,12 @@ html,body{
 }
 
 .body-canvas{
-    background: url("../img/grid.png");
+    /*background: url("../img/grid.png");*/
     position: relative;
     margin: 15px auto;
 
     height: 90%;
+    overflow-x: scroll;
 }
 
 /* override efrule style to take out the overflow */
@@ -104,7 +113,7 @@ html,body{
     color: #F5F5F5;
 }
 
-.body-tools .left-lateral-bar a:hover li{
+.body-tools .left-lateral-bar li:hover{
     background-color: gray;
 }
 

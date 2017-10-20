@@ -1,7 +1,13 @@
+# -*- coding: utf-8 -*-
+import uuid
 from django.contrib.auth.models import User
 from django.db import models
 from decimal import Decimal
 
+
+class BaseAccordionManager(models.Manager):
+    def get_queryset(self):
+        return super(BaseAccordionManager, self).get_queryset().filter(parent=None)
 
 # Abstracción de un proyecto creado por el usuario
 # Un proyecto puede contener distintos patrones / solo 1 de cada 1
@@ -25,53 +31,74 @@ class Project(models.Model):
 
 
 class AccordionAbstract(models.Model):
-    name = models.CharField(max_length=50, blank=True, default='')
-    title = models.CharField(max_length=50, blank=True, default='')
-    title_style = models.TextField(blank=True, default='')
-    content = models.TextField(blank=True, default='')
-    content_style = models.TextField(blank=True, default='')
-    width = models.CharField(max_length=50, blank=True, default='')
-    height = models.CharField(max_length=50, blank=True, default='')
-    style = models.TextField(blank=True, default='')
+    accordion_id = models.UUIDField(
+        u'Id del acordeon',
+        default=uuid.uuid4,
+        editable=False
+    )
 
-    def get_name_for_id(self):
-        "Remueve todos los caracteres especiales dejando [a-z0-9]"
-        return ''.join(e.lower() for e in self.name if e.isalnum())
+    title = models.CharField(
+        u'Título',
+        max_length=50
+    )
+    title_style = models.TextField(
+        u'Estilos del Título',
+        blank=True,
+        null=True
+    )
+    content = models.TextField(
+        u'Contenido',
+        blank=True,
+        null=True
+    )
+    content_style = models.TextField(
+        u'Estilos del contenido',
+        blank=True,
+        null=True
+    )
+    width = models.CharField(
+        u'Ancho (%)',
+        max_length=50,
+        blank=True,
+        null=True,
+        default='100'
+    )
+    height = models.CharField(
+        u'Alto (px)',
+        max_length=50,
+        blank=True,
+        null=True,
+        default='30'
+    )
+    style = models.TextField(
+        u'Estilos generales',
+        blank=True,
+        null=True
+    )
 
     class Meta:
         abstract = True
 
 
 class Accordion(AccordionAbstract):
-    def get_identificador(self):
-        return 'ac{}{}'.format(
-            self.get_name_for_id(),
-            self.id
-        )
-
-    def __str__(self):
-        if self.get_name_for_id():
-            return "Acordeon " + self.get_name_for_id()
-        else:
-            return "Acordeon #" + str(self.id)
-
-
-class SubAccordion(AccordionAbstract):
-    acordeon_padre = models.ForeignKey(
-        'Accordion',
-        on_delete=models.CASCADE,
-        default=None
+    parent = models.ForeignKey(
+        'self',
+        null=True,
+        blank=True,
+        related_name="panels"
     )
 
-    def get_identificador(self):
-        return 'sac{}{}_{}'.format(
-            self.get_name_for_id(),
-            self.acordeon_padre.id,
-            self.id
-        )
+    # objects returns accordions that have no parent.
+    # all_objects returns all accordions, with out without parents.
+    objects = BaseAccordionManager()
+    all_objects = models.Manager()
 
     def __str__(self):
-        if self.get_name_for_id():
-            return "Sub Acordeon " + self.get_name_for_id()
-        else:
-            return "Sub Acordeon #" + str(self.id)
+        return str(self.id)
+
+    def get_uuid_as_str(self):
+        return str(self.accordion_id)
+
+    def get_child_panels(self):
+        panels = Accordion.all_objects.filter(parent=self.id)
+        return panels
