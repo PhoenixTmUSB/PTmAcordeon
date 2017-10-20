@@ -39,7 +39,14 @@ def accordionCreate(request):
         context['accordionForm'] = form
 
         if form.is_valid():
-            form.save()
+            panel_nro = form.cleaned_data['panels']
+            parent = form.save()
+
+            for i in range(0, panel_nro):
+                Accordion(
+                    title='Panel hijo',
+                    parent=parent
+                ).save()
 
             return HttpResponse(
                 content=json.dumps({"redirectTo": reverse('main:accordion-list')}),
@@ -61,7 +68,11 @@ def accordionEdit(request, accordion_id):
     context = {
         'accordionForm': AccordionForm(),
     }
-    accordion = get_object_or_404(Accordion, accordion_id=accordion_id)
+
+    try:
+        accordion = Accordion.all_objects.get(accordion_id=accordion_id)
+    except ObjectDoesNotExist:
+        raise ObjectDoesNotExist()
 
     if request.method == 'POST':
         form = AccordionForm(request.POST or None, instance=accordion)
@@ -79,7 +90,10 @@ def accordionEdit(request, accordion_id):
 def accordionDelete(request, accordion_id):
     # Get accordion to delete and delete it
     if request.method == 'GET':
-        accordion = get_object_or_404(Accordion, accordion_id=accordion_id)
+        try:
+            accordion = Accordion.all_objects.get(accordion_id=accordion_id)
+        except ObjectDoesNotExist:
+            raise ObjectDoesNotExist()
         accordion.delete()
 
     return redirect('main:accordion-list')

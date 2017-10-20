@@ -38,3 +38,13 @@
 .accordion-option i{
     margin-top: 6px;
 }
+
+.edit-panel-button{
+    display: inline-block;
+    margin: 0 7px;
+}
+
+.delete-panel-button{
+    display: inline-block;
+    margin: 0 7px;
+}
