@@ -9,7 +9,7 @@ class TestAcordeonView(TestCase):
     def test_acordeon_crear_funcionando_get(self):
         "Checkea que se pueda acceder a la vista crear acordeon"
         response = self.client.get('/crear-acordeon/')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 400)
 
     def test_acordeon_crear_funcionando_post(self):
         "Checkea que la vista esté funcionando para crear un acordeon"
