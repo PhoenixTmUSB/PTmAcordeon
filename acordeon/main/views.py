@@ -7,8 +7,8 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.urls import reverse
 
-from .models import *
 from .forms import AccordionForm
+from .models import *
 
 
 ## Home, vista inicial que ven los usuarios
@@ -126,4 +126,4 @@ def ajax_log_in_view(request):
 # Cierra la sesión de un usuario y lo redirige al home
 def logout_user(request):
     logout(request)
-    return redirect(index)
+    return redirect('/')

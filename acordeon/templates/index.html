@@ -30,7 +30,7 @@
                         <p class="text-center log-in-toolbar" style="color: #d5d5d5;">
                             {% if user.is_authenticated %}
                                 <span class="glyphicon glyphicon-user"></span> Hola {{ user.username }} |
-                                <a href="{% url 'logout' %}" role="link" class="link-log-in-modal">
+                                <a href="{% url 'main:logout' %}" role="link" class="link-log-in-modal">
                                     cerrar sesión
                                 </a>
                             {% else %}
