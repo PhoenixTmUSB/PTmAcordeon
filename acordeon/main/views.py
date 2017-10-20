@@ -55,27 +55,18 @@ def accordionCreate(request):
     return render(request, 'index.html', context, status=400)
 
 
-# View to delete acordions
+# View to delete accordions
 def accordionEdit(request, accordion_id):
     # Initialize context and search for accordion to edit
     context = {}
     accordion = get_object_or_404(Accordion, accordion_id=accordion_id)
 
     if request.method == 'POST':
-        form = AccordionForm(request.POST)
+        form = AccordionForm(request.POST or None, instance=accordion)
         context['accordionForm'] = form
 
         if form.is_valid():
             form.save()
-
-        return HttpResponse(
-            content=json.dumps({"redirectTo": reverse('main:accordion-list')}),
-            content_type='application/json',
-            status=200
-        )
-
-        # Error in form.
-        return HttpResponse(json.dumps(form.errors), status=400)
     else:
         
         context['accordionForm'] = AccordionForm(instance=accordion)
