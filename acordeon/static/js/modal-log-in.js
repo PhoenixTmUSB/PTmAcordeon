@@ -42,7 +42,7 @@ $(function () {
     }
 
 
-    $("form").submit(function (e) {
+    $("div#login-modal form").submit(function (e) {
         e.preventDefault();
         switch (this.id) {
             case "login-form":
