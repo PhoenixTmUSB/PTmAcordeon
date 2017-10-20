@@ -1,7 +1,9 @@
 from time import sleep
 
+import selenium
 from django.contrib.auth.models import User
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 
@@ -48,41 +50,6 @@ class TestSeleniumAcordeon(StaticLiveServerTestCase):
             self.selenium.find_element_by_css_selector(".panel.panel-default")
 
         self.assertTrue(isinstance(cm.exception, NoSuchElementException))
-
-    def test_se_crean_dos_acordeon_simple(self):
-        acordeon_mdl1 = Accordion(
-            name="nombre acordeon 1",
-            content="Contenido del Acordeon 1",
-            content_style='color:azure;',
-            title="Titulo del Acordeon 1",
-            title_style="color:red;",
-            width='320px',
-            height='480px',
-            style='color:yellow;',
-        )
-        acordeon_mdl1.save()
-
-        acordeon_mdl2 = Accordion(
-            name="nombre acordeon 2",
-            content="Contenido del Acordeon 2",
-            content_style='color:gray;',
-            title="Titulo del Acordeon 2",
-            title_style="color:black;",
-            width='321px',
-            height='482px',
-            style='color:blue;',
-        )
-        acordeon_mdl2.save()
-
-        self.selenium.get('%s%s' % (self.live_server_url, '/acordeon/'))
-
-        elem1 = self.selenium.find_element_by_css_selector(
-            "div.panel-group#accordion div.panel.panel-default div#nombreacordeon1"
-        )
-
-        elem2 = self.selenium.find_element_by_css_selector(
-            "div.panel-group#accordion div.panel.panel-default div#nombreacordeon2"
-        )
 
 
 ## Chequea que un usuario pueda iniciar sesión sin problemas
