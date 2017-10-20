@@ -5,87 +5,90 @@ from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 
-# class TestSeleniumHome(StaticLiveServerTestCase):
-#     @classmethod
-#     def setUpClass(cls):
-#         super(TestSeleniumHome, cls).setUpClass()
-#         cls.selenium = WebDriver()
-#         cls.selenium.implicitly_wait(10)
+class TestSeleniumHome(StaticLiveServerTestCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestSeleniumHome, cls).setUpClass()
+        cls.selenium = WebDriver()
+        cls.selenium.implicitly_wait(10)
 
-#     @classmethod
-#     def tearDownClass(cls):
-#         cls.selenium.quit()
-#         super(TestSeleniumHome, cls).tearDownClass()
+    @classmethod
+    def tearDownClass(cls):
+        cls.selenium.quit()
+        super(TestSeleniumHome, cls).tearDownClass()
 
-#     ## Solo abre el home y chequea que se muestre el título correcto en el navegador
-#     def test_home_ok(self):
-#         self.selenium.get('%s%s' % (self.live_server_url, '/'))
-#         self.assertIn("Phoenix Team | Editor", self.selenium.title)
+    ## Solo abre el home y chequea que se muestre el título correcto en el navegador
+    def test_home_ok(self):
+        self.selenium.get('%s%s' % (self.live_server_url, '/'))
+        self.assertIn("Phoenix Team | Editor", self.selenium.title)
 
 
-# ## Chequea que la página acordeon funcione correctamente
-# class TestSeleniumAcordeon(StaticLiveServerTestCase):
-#     @classmethod
-#     def setUpClass(cls):
-#         super(TestSeleniumAcordeon, cls).setUpClass()
-#         cls.selenium = WebDriver()
-#         cls.selenium.implicitly_wait(50)
+## Chequea que la página acordeon funcione correctamente
+class TestSeleniumAcordeon(StaticLiveServerTestCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestSeleniumAcordeon, cls).setUpClass()
+        cls.selenium = WebDriver()
+        cls.selenium.implicitly_wait(50)
 
-#     @classmethod
-#     def tearDownClass(cls):
-#         cls.selenium.quit()
-#         super(TestSeleniumAcordeon, cls).tearDownClass()
+    @classmethod
+    def tearDownClass(cls):
+        cls.selenium.quit()
+        super(TestSeleniumAcordeon, cls).tearDownClass()
 
-#     def test_tiene_el_titulo_adecuado(self):
-#         "Prueba que la página del acordeon tenga el título adecuado"
-#         self.selenium.get('%s%s' % (self.live_server_url, '/acordeon/'))
-#         self.assertIn("Phoenix Team | Editor", self.selenium.title)
+    def test_tiene_el_titulo_adecuado(self):
+        "Prueba que la página del acordeon tenga el título adecuado"
+        self.selenium.get('%s%s' % (self.live_server_url, '/acordeon/'))
+        self.assertIn("Phoenix Team | Editor", self.selenium.title)
 
-#     def test_no_tiene_acordeon(self):
-#         "Comprueba que no se muestre ningun acordeon en la vista"
-#         self.selenium.get('%s%s' % (self.live_server_url, '/acordeon/'))
-#         with self.assertRaises(selenium.common.exceptions.NoSuchElementException) as cm:
-#             self.selenium.find_element_by_css_selector(".panel.panel-default")
+    def test_no_tiene_acordeon(self):
+        "Comprueba que no se muestre ningun acordeon en la vista"
+        self.selenium.get('%s%s' % (self.live_server_url, '/acordeon/'))
+        with self.assertRaises(selenium.common.exceptions.NoSuchElementException) as cm:
+            self.selenium.find_element_by_css_selector(".panel.panel-default")
 
-#         self.assertTrue(isinstance(cm.exception, NoSuchElementException))
+        self.assertTrue(isinstance(cm.exception, NoSuchElementException))
 
-#     def test_se_crean_dos_acordeon_simple(self):
-#         acordeon_mdl1 = Accordion(
-#             name="nombre acordeon 1",
-#             content="Contenido del Acordeon 1",
-#             content_style='color:azure;',
-#             title="Titulo del Acordeon 1",
-#             title_style="color:red;",
-#             width='320px',
-#             height='480px',
-#             style='color:yellow;',
-#         )
-#         acordeon_mdl1.save()
+    def test_se_crean_dos_acordeon_simple(self):
+        acordeon_mdl1 = Accordion(
+            name="nombre acordeon 1",
+            content="Contenido del Acordeon 1",
+            content_style='color:azure;',
+            title="Titulo del Acordeon 1",
+            title_style="color:red;",
+            width='320px',
+            height='480px',
+            style='color:yellow;',
+        )
+        acordeon_mdl1.save()
 
-#         acordeon_mdl2 = Accordion(
-#             name="nombre acordeon 2",
-#             content="Contenido del Acordeon 2",
-#             content_style='color:gray;',
-#             title="Titulo del Acordeon 2",
-#             title_style="color:black;",
-#             width='321px',
-#             height='482px',
-#             style='color:blue;',
-#         )
-#         acordeon_mdl2.save()
+        acordeon_mdl2 = Accordion(
+            name="nombre acordeon 2",
+            content="Contenido del Acordeon 2",
+            content_style='color:gray;',
+            title="Titulo del Acordeon 2",
+            title_style="color:black;",
+            width='321px',
+            height='482px',
+            style='color:blue;',
+        )
+        acordeon_mdl2.save()
 
-#         self.selenium.get('%s%s' % (self.live_server_url, '/acordeon/'))
+        self.selenium.get('%s%s' % (self.live_server_url, '/acordeon/'))
 
-#         elem1 = self.selenium.find_element_by_css_selector(
-#             "div.panel-group#accordion div.panel.panel-default div#nombreacordeon1"
-#         )
+        elem1 = self.selenium.find_element_by_css_selector(
+            "div.panel-group#accordion div.panel.panel-default div#nombreacordeon1"
+        )
 
-#         elem2 = self.selenium.find_element_by_css_selector(
-#             "div.panel-group#accordion div.panel.panel-default div#nombreacordeon2"
-#         )
+        elem2 = self.selenium.find_element_by_css_selector(
+            "div.panel-group#accordion div.panel.panel-default div#nombreacordeon2"
+        )
 
 
 ## Chequea que un usuario pueda iniciar sesión sin problemas
+from main.models import Accordion
+
+
 class TestSeleniumUsuarioInicioSesion(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
@@ -134,8 +137,8 @@ class TestSeleniumUsuarioInicioSesion(StaticLiveServerTestCase):
 
         self.assertEqual(mensage_log_in.text, 'Login OK')
 
-        # Esperamos 10 segundos
-        sleep(10)
+        # Esperamos 4 segundos
+        sleep(4)
 
         # Suponemos que no ocurrió una redirección
         self.assertEqual(url_antes_log_in, self.selenium.current_url)
@@ -206,3 +209,115 @@ class TestSeleniumUsuarioInicioSesion(StaticLiveServerTestCase):
             sleep(1)
 
         self.assertEqual(mensage_log_in.text, 'Login error')
+
+    def criterio_crear_acordeon_con_un_panel(self):
+        "Prueba que un usuario pueda crear un acordeon con un solo panel"
+        self.selenium.get('%s%s' % (self.live_server_url, '/crear-acordeon/'))
+        enl_modal = self.selenium.find_element_by_css_selector('[data-target="#accordion-create-modal"]')
+        enl_modal.click()  # Click al enlace para abrir el modal
+
+        acordeon_mdl = Accordion(
+            title="titulo",
+            title_style="color:red",
+            content="contenido",
+            content_style="color:blue",
+            width="100",
+            height="50",
+            style="color:blue",
+        )
+        # acordeon_mdl.save()
+
+        form_crear_acordeon = self.selenium.find_element_by_css_selector('form#accordion-create-form')
+
+        form_crear_acordeon.find_element_by_name('title').send_keys(acordeon_mdl.title)
+        form_crear_acordeon.find_element_by_name('title_style').send_keys(acordeon_mdl.title_style)
+        form_crear_acordeon.find_element_by_name('content').send_keys(acordeon_mdl.content)
+        form_crear_acordeon.find_element_by_name('content_style').send_keys(acordeon_mdl.content_style)
+
+        form_crear_acordeon.find_element_by_name('width').clear()
+        form_crear_acordeon.find_element_by_name('width').send_keys(acordeon_mdl.width)
+
+        form_crear_acordeon.find_element_by_name('height').clear()
+        form_crear_acordeon.find_element_by_name('height').send_keys(acordeon_mdl.height)
+
+        form_crear_acordeon.find_element_by_name('style').send_keys(acordeon_mdl.style)
+
+        # Guardamos la url actual del usuario antes de crear el acordeon
+        url_antes_guardar_acordeon = self.selenium.current_url
+
+        form_crear_acordeon.find_element_by_css_selector('button[type="submit"]').click()
+
+        # Mientrasque no se haya redirido a la vista donde se muestra el acordeon creado
+        while url_antes_guardar_acordeon == self.selenium.current_url:
+            sleep(1)
+
+        self.assertEqual(self.selenium.current_url, '%s%s' % (self.live_server_url, '/acordeon/'))
+
+        acordeon_mdl_bd = Accordion.all_objects.get(title="titulo")
+
+        self.assertEqual(acordeon_mdl.title, acordeon_mdl_bd.title)
+        self.assertEqual(acordeon_mdl.title_style, acordeon_mdl_bd.title_style)
+        self.assertEqual(acordeon_mdl.content, acordeon_mdl_bd.content)
+        self.assertEqual(acordeon_mdl.content_style, acordeon_mdl_bd.content_style)
+        self.assertEqual(acordeon_mdl.width, acordeon_mdl_bd.width)
+        self.assertEqual(acordeon_mdl.height, acordeon_mdl_bd.height)
+
+        # self.assertEqual(acordeon_mdl.style, acordeon_mdl_bd.style)
+        # Faltaría verificar que la preview del acordeon está bien hecha
+
+        self.assertEqual(self.selenium.find_element_by_css_selector(
+            'div#accordion-' + str(acordeon_mdl_bd.accordion_id) + ' .panel-title').text, acordeon_mdl_bd.title)
+
+    def agregar_panel_al_acordeon(self):
+        self.selenium.get('%s%s' % (self.live_server_url, '/crear-acordeon/'))
+        enl_modal = self.selenium.find_element_by_css_selector('[data-target="#accordion-create-modal"]')
+        enl_modal.click()  # Click al enlace para abrir el modal
+
+        acordeon_mdl = Accordion(
+            title="titulo",
+        )
+
+        form_crear_acordeon = self.selenium.find_element_by_css_selector('form#accordion-create-form')
+
+        form_crear_acordeon.find_element_by_name('title').send_keys(acordeon_mdl.title)
+
+        # Guardamos la url actual del usuario antes de crear el acordeon
+        url_antes_guardar_acordeon = self.selenium.current_url
+
+        form_crear_acordeon.find_element_by_css_selector('button[type="submit"]').click()
+
+        # Mientrasque no se haya redirido a la vista donde se muestra el acordeon creado
+        while url_antes_guardar_acordeon == self.selenium.current_url:
+            sleep(1)
+
+        acordeon_mdl_bd = Accordion.all_objects.get(title="titulo")
+
+        # Guardamos la url que muestra la vista
+        current_url_antes_click_editar = self.selenium.current_url
+
+        self.selenium.find_element_by_css_selector('a.edit-panel-button').click()
+
+        # Mientras que no se muestre la vista de editar panel
+        while current_url_antes_click_editar == self.selenium.current_url:
+            sleep(1)
+
+        self.assertEqual(self.selenium.current_url,
+                         '%s%s' % (self.live_server_url, '/editar-acordeon/' + acordeon_mdl_bd.accordion_id))
+
+        self.selenium.find_element_by_css_selector('input#id_panels').clear()
+        self.selenium.find_element_by_css_selector('input#id_panels').send_keys(1)
+
+        # Guardamos la url que muestra la vista de editar panel
+        current_url_antes_click_guardar = self.selenium.current_url
+
+        self.selenium.find_element_by_css_selector("button[type='submit']").submit()
+
+        #
+        # # Mientrasque no se haya redirido a la vista donde se muestra el acordeon editado
+        # while current_url_antes_click_guardar == self.selenium.current_url:
+        #     sleep(1)
+        #
+        # self.assertEqual(self.selenium.current_url, '%s%s' % (self.live_server_url, '/acordeon/'))
+        #
+        #
+        # self.assertEqual(self.selenium.find_element_by_css_selector('div#accordion-'+str(acordeon_mdl_bd.accordion_id) + ' .panel-title').text,acordeon_mdl_bd.title)
