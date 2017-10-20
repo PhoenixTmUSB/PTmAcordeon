@@ -4,7 +4,7 @@ from .models import *
 
 
 class AccordionForm(forms.ModelForm):
-    panels = forms.IntegerField(label='Paneles extra', min_value=0, required=False)
+    panels = forms.IntegerField(label='Paneles extra', min_value=0, required=False, initial=0)
 
     class Meta:
         model = Accordion

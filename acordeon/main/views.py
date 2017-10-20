@@ -65,14 +65,15 @@ def accordionCreate(request):
 # View to delete accordions
 def accordionEdit(request, accordion_id):
     # Initialize context and search for accordion to edit
-    context = {
-        'accordionForm': AccordionForm(),
-    }
-
     try:
         accordion = Accordion.all_objects.get(accordion_id=accordion_id)
     except ObjectDoesNotExist:
         raise ObjectDoesNotExist()
+
+    context = {
+        'accordionForm': AccordionForm(),
+        'accordion': accordion
+    }
 
     if request.method == 'POST':
         form = AccordionForm(request.POST or None, instance=accordion)
