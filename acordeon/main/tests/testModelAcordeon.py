@@ -1,11 +1,9 @@
-# Realiza pruebas unitarias a los models
-# Se asume que el modelo Accordion y SubAccordion existen
+# Realiza pruebas enfocadas en el modelo Acordeon
 from django.test import TestCase
 
-from main.models import Accordion, SubAccordion
+from main.models import Accordion
 
 
-# Realiza pruebas enfocadas en el modelo Acordeon
 class TestAcordeon(TestCase):
     def setUp(self):
         # Accordion.objects.create()
@@ -144,7 +142,7 @@ class TestAcordeon(TestCase):
         )
         acordeon_mdl1.save()
 
-        subacordeon_mdl1 = SubAccordion(
+        subacordeon_mdl1 = Accordion(
             name="nombre",
             title="titulo",
             title_style="titulo_estilo",
@@ -169,7 +167,7 @@ class TestAcordeon(TestCase):
         )
         acordeon_mdl2.save()
 
-        subacordeon_mdl2 = SubAccordion(
+        subacordeon_mdl2 = Accordion(
             name="nombre",
             title="titulo",
             title_style="titulo_estilo",
@@ -207,23 +205,16 @@ class TestAcordeon(TestCase):
         acordeon_mdl_padre = Accordion(name="hola_pa")
         acordeon_mdl_padre.save()
 
-        acordeon_mdl_child1 = SubAccordion(name="hola_ch1", acordeon_padre=acordeon_mdl_padre)
+        acordeon_mdl_child1 = Accordion(name="hola_ch1", acordeon_padre=acordeon_mdl_padre)
         acordeon_mdl_child1.save()
 
-        acordeon_mdl_child2 = SubAccordion(name="hola_ch2", acordeon_padre=acordeon_mdl_padre)
+        acordeon_mdl_child2 = Accordion(name="hola_ch2", acordeon_padre=acordeon_mdl_padre)
         acordeon_mdl_child2.save()
 
-        acordeones_hijos = SubAccordion.objects.filter(acordeon_padre=acordeon_mdl_padre).order_by('name')
+        acordeones_hijos = Accordion.objects.filter(acordeon_padre=acordeon_mdl_padre).order_by('name')
 
         self.assertTrue(acordeones_hijos[0].name == "hola_ch1")
         self.assertTrue(acordeones_hijos[1].name == "hola_ch2")
-
-
-# Realiza pruebas enfocadas en el modelo sub acordeon
-class TestSubAcordeon(TestCase):
-    def setUp(self):
-        self.acordeon_mdl_padre = Accordion(name="hola_pa")
-        self.acordeon_mdl_padre.save()
 
     def test_create_modelo_subacordeon_sin_argumentos(self):
         """Modelo Sub Acordeon Existe"""

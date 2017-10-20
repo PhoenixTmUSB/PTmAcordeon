@@ -2,14 +2,16 @@ from django.contrib.auth import authenticate, login, logout
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
-from .models import *
 from .forms import AccordionForm
+from .models import *
 
 
+## Home, vista inicial que ven los usuarios
 def index(request):
     return render(request, 'index.html')
 
 
+## Vista encargada de renderizar el acordeón al usuario
 def acordeon(request):
     a = Accordion.objects.all()
     context = {}

@@ -1,9 +1,8 @@
-# import selenium
-# from django.contrib.staticfiles.testing import StaticLiveServerTestCase
-# from selenium.common.exceptions import NoSuchElementException
-# from selenium.webdriver.firefox.webdriver import WebDriver
+from time import sleep
 
-# from main.models import Accordion
+from django.contrib.auth.models import User
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium.webdriver.firefox.webdriver import WebDriver
 
 
 # class TestSeleniumHome(StaticLiveServerTestCase):
@@ -84,3 +83,126 @@
 #         elem2 = self.selenium.find_element_by_css_selector(
 #             "div.panel-group#accordion div.panel.panel-default div#nombreacordeon2"
 #         )
+
+
+## Chequea que un usuario pueda iniciar sesión sin problemas
+class TestSeleniumUsuarioInicioSesion(StaticLiveServerTestCase):
+    @classmethod
+    def setUpClass(cls):
+        super(TestSeleniumUsuarioInicioSesion, cls).setUpClass()
+        cls.selenium = WebDriver()
+        cls.selenium.implicitly_wait(50)
+
+        cls.user_pass_txt = 'soyunapasssegura'
+        cls.user = User.objects.create_user('manuggz', 'manuel@coolkids.com', cls.user_pass_txt)
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.selenium.quit()
+        super(TestSeleniumUsuarioInicioSesion, cls).tearDownClass()
+
+    def test_iniciar_sesion_sim_problemas(self):
+        "Prueba que un usuario registrado pueda iniciar sesión y que la página no lo rediriga a otro url"
+        self.selenium.get('%s%s' % (self.live_server_url, '/'))
+        enl_modal = self.selenium.find_element_by_css_selector("a.link-log-in-modal")
+        enl_modal.click()  # Click al enlace para abrir el modal
+
+        form_dom = self.selenium.find_element_by_css_selector("form#login-form")
+
+        input_username = form_dom.find_element_by_css_selector("input#login_username")
+        input_username.send_keys(self.user.username)
+
+        input_username = form_dom.find_element_by_css_selector("input#login_password")
+        input_username.send_keys(self.user_pass_txt)
+
+        boton_iniciar_sesion = form_dom.find_element_by_css_selector("button[type='submit']")
+
+        mensage_log_in = form_dom.find_element_by_css_selector('span#text-login-msg')
+
+        # Guardamos el mensaje que se muestra al usuario antes de que se cambie por el JS
+        mensage_log_in_texto_anterior = mensage_log_in.text
+
+        # Guardamos la url actual del usuario antes de iniciar sesión
+        url_antes_log_in = self.selenium.current_url
+
+        # Clickeamos el boton para inicar la sesión
+        boton_iniciar_sesion.click()
+
+        # Mientras el JS no cambie el mensaje esperamos
+        while mensage_log_in_texto_anterior == mensage_log_in.text:
+            sleep(1)
+
+        self.assertEqual(mensage_log_in.text, 'Login OK')
+
+        # Esperamos 10 segundos
+        sleep(10)
+
+        # Suponemos que no ocurrió una redirección
+        self.assertEqual(url_antes_log_in, self.selenium.current_url)
+
+    def test_iniciar_sesion_usuario_no_existente(self):
+        "Prueba que un usuario no existente no pueda iniciar sesión"
+
+        self.selenium.get('%s%s' % (self.live_server_url, '/'))
+        enl_modal = self.selenium.find_element_by_css_selector("a.link-log-in-modal")
+        enl_modal.click()  # Click al enlace para abrir el modal
+
+        form_dom = self.selenium.find_element_by_css_selector("form#login-form")
+
+        input_username = form_dom.find_element_by_css_selector("input#login_username")
+        input_username.send_keys('usuarionoexistente')
+
+        input_username = form_dom.find_element_by_css_selector("input#login_password")
+        input_username.send_keys(self.user_pass_txt)
+
+        boton_iniciar_sesion = form_dom.find_element_by_css_selector("button[type='submit']")
+
+        mensage_log_in = form_dom.find_element_by_css_selector('span#text-login-msg')
+
+        # Guardamos el mensaje que se muestra al usuario antes de que se cambie por el JS
+        mensage_log_in_texto_anterior = mensage_log_in.text
+
+        # Guardamos la url actual del usuario antes de iniciar sesión
+        url_antes_log_in = self.selenium.current_url
+
+        # Clickeamos el boton para inicar la sesión
+        boton_iniciar_sesion.click()
+
+        # Mientras el JS no cambie el mensaje esperamos
+        while mensage_log_in_texto_anterior == mensage_log_in.text:
+            sleep(1)
+
+        self.assertEqual(mensage_log_in.text, 'Login error')
+
+    def test_iniciar_sesion_usuario_contra_incorrecta(self):
+        "Prueba que un usuario si introduce su contraseña incorrecta no pueda iniciar sesión"
+        self.selenium.get('%s%s' % (self.live_server_url, '/'))
+        enl_modal = self.selenium.find_element_by_css_selector("a.link-log-in-modal")
+        enl_modal.click()  # Click al enlace para abrir el modal
+
+        form_dom = self.selenium.find_element_by_css_selector("form#login-form")
+
+        input_username = form_dom.find_element_by_css_selector("input#login_username")
+        input_username.send_keys(self.user.username)
+
+        input_username = form_dom.find_element_by_css_selector("input#login_password")
+        input_username.send_keys(self.user_pass_txt + 'jeje')
+
+        boton_iniciar_sesion = form_dom.find_element_by_css_selector("button[type='submit']")
+
+        mensage_log_in = form_dom.find_element_by_css_selector('span#text-login-msg')
+
+        # Guardamos el mensaje que se muestra al usuario antes de que se cambie por el JS
+        mensage_log_in_texto_anterior = mensage_log_in.text
+
+        # Guardamos la url actual del usuario antes de iniciar sesión
+        url_antes_log_in = self.selenium.current_url
+
+        # Clickeamos el boton para inicar la sesión
+        boton_iniciar_sesion.click()
+
+        # Mientras el JS no cambie el mensaje esperamos
+        while mensage_log_in_texto_anterior == mensage_log_in.text:
+            sleep(1)
+
+        self.assertEqual(mensage_log_in.text, 'Login error')
