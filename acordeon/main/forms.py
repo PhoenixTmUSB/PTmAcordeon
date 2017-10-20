@@ -1,14 +1,19 @@
-from django.forms import ModelForm
+from django import forms
 
 from .models import *
 
 
-class AccordionForm(ModelForm):
+class AccordionForm(forms.ModelForm):
     class Meta:
         model = Accordion
         fields = [
-            'name', 'title',
-            'title_style', 'content',
-            'content_style', 'width',
-            'height', 'style'
+            'title', 'title_style',
+            'content', 'content_style',
+            'width', 'height',
+            'style'
         ]
+
+        widgets = {
+            'title_style': forms.Textarea(attrs={'rows': '3'}),
+            'content_style': forms.Textarea(attrs={'rows': '3'})
+        }

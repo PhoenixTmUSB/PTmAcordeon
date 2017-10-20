@@ -1,4 +1,5 @@
 {% load staticfiles %}
+{% load static %}
 <html>
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -8,6 +9,7 @@
         <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/jquery.ui.ruler.css' %}">
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/styles-accordion.css' %}">
     </head>
 
     <body class="container-fluid">
@@ -29,8 +31,10 @@
                     <!-- Left nav bar -->
                     <ul>
                         <a href="#"><li class="blue-hover"><i class="fa fa-bars" aria-hidden="true"></i> Acordeon</li></a>
-                        <a href="{% url 'crear_acordeon' %}"><li class="blue-hover"><i class="fa fa-plus" aria-hidden="true"></i> Crear</li></a>
-                        <a href="{% url 'acordeon' %}"><li class="blue-hover"><i class="fa fa-list" aria-hidden="true"></i> Lista?</li></a>
+                        <li class="blue-hover" data-toggle="modal" data-target="#accordion-create-modal">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Crear
+                        </li>
+                        <a href="{% url 'main:accordion-list' %}"><li class="blue-hover"><i class="fa fa-list" aria-hidden="true"></i> Lista</li></a>
                         <a href="#"><li class="blue-hover"><i class="fa fa-question" aria-hidden="true"></i> Otro</li></a>
                         <a href="#"><li class="blue-hover"><i class="fa fa-question" aria-hidden="true"></i> Otro</li></a>
                     </ul>
@@ -71,14 +75,63 @@
                 </div>
             </div>
         </div>
+    
+        {% include 'create_accordion.html' %}
 
         <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
         <script src="{% static 'js/jquery-ui.min.js' %}"></script>
         <script src="{% static 'js/jquery.ui.ruler.js' %}"></script>
         <script language="JavaScript">
+            function csrfSafeMethod(method) {
+                // these HTTP methods do not require CSRF protection
+                return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+            }
+
+            function getCookie(name) {
+                var cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    var cookies = document.cookie.split(';');
+                    for (var i = 0; i < cookies.length; i++) {
+                        var cookie = jQuery.trim(cookies[i]);
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+
             $(document).ready(function () {
-                $('.body-canvas').ruler();
+                //$('.body-canvas').ruler();
+                
+                $("#accordion-create-submit").on('click', function(e){
+                    e.preventDefault();
+
+                    var accordionForm = $('#accordion-create-form').serialize();
+                    var csrftoken = getCookie('csrftoken');
+
+                    $.ajaxSetup({
+                        beforeSend: function(xhr, settings) {
+                            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                            }
+                        },
+                    });
+
+                    $.ajax({
+                        url: "{% url 'main:accordion-create'%}",
+                        data: JSON.stringify(accordionForm),
+                        method: "POST",
+                        dataType: 'json',
+                    }).done(function(data){
+                        window.location.replace(data['redirectTo']);
+                    }).fail(function(XMLHttpRequest, textStatus, errorThrown) { 
+                        console.log(XMLHttpRequest.responseText);
+                    })
+                })
             });
         </script>
     </body>

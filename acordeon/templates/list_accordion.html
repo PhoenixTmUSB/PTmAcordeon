@@ -1,0 +1,11 @@
+{% extends "index.html" %}
+
+{% block content %}
+<div>
+    <div class="panel-group" id="accordion">
+    	{% for accordion in list %}
+            {% include "accordion.html" with accordion=accordion nombrecualquiera=forloop.first only %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

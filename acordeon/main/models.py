@@ -1,38 +1,61 @@
+# -*- coding: utf-8 -*-
+import uuid
 from django.db import models
 
 
 class AccordionAbstract(models.Model):
-    name = models.CharField(max_length=50, unique=True, null=True)
-    title = models.CharField(max_length=50, blank=True, null=True)
-    title_style = models.TextField(blank=True, null=True)
-    content = models.TextField(blank=True, null=True)
-    content_style = models.TextField(blank=True, null=True)
-    width = models.CharField(max_length=50, blank=True, null=True)
-    height = models.CharField(max_length=50, blank=True, null=True)
-    style = models.TextField(blank=True, null=True)
+    acordion_id = models.UUIDField(
+        u'Id del acordeon',
+        default=uuid.uuid4,
+        editable=False
+    )
+
+    title = models.CharField(
+        u'Título',
+        max_length=50
+    )
+    title_style = models.TextField(
+        blank=True,
+        null=True
+    )
+    content = models.TextField(
+        blank=True,
+        null=True
+    )
+    content_style = models.TextField(
+        blank=True,
+        null=True
+    )
+    width = models.CharField(
+        max_length=50,
+        blank=True,
+        null=True,
+        default='100'
+    )
+    height = models.CharField(
+        max_length=50,
+        blank=True,
+        null=True,
+        default='30'
+    )
+    style = models.TextField(
+        blank=True,
+        null=True
+    )
 
     class Meta:
         abstract = True
 
 
-class SubAccordion(AccordionAbstract):
-
-    def get_name_for_id(self):
-        return self.name.replace(" ", "")
-
-    def __str__(self):
-        return self.name
-
-
 class Accordion(AccordionAbstract):
-    sub_accordions = models.ManyToManyField(
-        SubAccordion,
+    panels = models.ManyToManyField(
+        'self',
         blank=True,
-        related_name="accordion_sub_accordions"
+        related_name="panels",
     )
 
-    def get_name_for_id(self):
-        return self.name.replace(" ", "")
-
     def __str__(self):
-        return self.name
+        return str(self.id)
+
+    def get_uuid_as_str(self):
+        return str(self.acordion_id)

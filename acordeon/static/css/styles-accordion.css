@@ -1,0 +1,40 @@
+/*
+    https://www.w3schools.com/colors/colors_shades.asp
+    
+    HTML Black              #000000     rgb(0,0,0)
+    HTML Gray               #808080     rgb(128,128,128)
+    HTML DarkGray           #A9A9A9     rgb(169,169,169)
+    HTML Silver             #C0C0C0     rgb(192,192,192)
+    HTML LightGray          #D3D3D3     rgb(211,211,211)
+    HTML WhiteSmoke         #F5F5F5     rgb(245,245,245)
+    HTML White              #FFFFFF     rgb(255,255,255)
+
+    Yellow hover buttons    #ffff66
+    Blue hover buttons      #1a66ff
+    Green hover buttons     #b3ff66
+    Red hover buttons       #ff6666
+
+*/
+.accordion-options{
+    width: 5% !important;
+}
+
+.accordion-option{
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    text-align: center;
+
+    margin-bottom: 5px;
+}
+
+.accordion-option{
+    color: gray;
+    text-decoration: none;
+}
+
+.accordion-option i{
+    margin-top: 6px;
+}
