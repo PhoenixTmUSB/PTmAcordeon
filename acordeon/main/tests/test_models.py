@@ -130,6 +130,77 @@ class TestAcordeon(TestCase):
 
         self.assertTrue(acordeon_mdl.get_identificador() != acordeon_mdl2.get_identificador())
 
+    def test_create_dos_modelo_acordeon_guardar_bd_dos_campo_name_iguales_dos_hijos(self):
+        """Comprueba que se puedan guardar dos acordeon con el mismo nombre con dos hijos y que generen distintos ID"""
+        acordeon_mdl1 = Accordion(
+            name="nombre",
+            title="titulo",
+            title_style="titulo_estilo",
+            content="contenido",
+            content_style="contenido_estilo",
+            width="123",
+            height="987",
+            style="estilo",
+        )
+        acordeon_mdl1.save()
+
+        subacordeon_mdl1 = SubAccordion(
+            name="nombre",
+            title="titulo",
+            title_style="titulo_estilo",
+            content="contenido",
+            content_style="contenido_estilo",
+            width="123",
+            height="987",
+            style="estilo",
+            acordeon_padre=acordeon_mdl1
+        )
+        subacordeon_mdl1.save()
+
+        acordeon_mdl2 = Accordion(
+            name="nombre",
+            title="titulo",
+            title_style="titulo_estilo",
+            content="contenido",
+            content_style="contenido_estilo",
+            width="123",
+            height="987",
+            style="estilo",
+        )
+        acordeon_mdl2.save()
+
+        subacordeon_mdl2 = SubAccordion(
+            name="nombre",
+            title="titulo",
+            title_style="titulo_estilo",
+            content="contenido",
+            content_style="contenido_estilo",
+            width="123",
+            height="987",
+            style="estilo",
+            acordeon_padre=acordeon_mdl2
+        )
+        subacordeon_mdl2.save()
+
+        self.assertTrue(
+            acordeon_mdl1.get_identificador() != acordeon_mdl2.get_identificador()
+        )
+        self.assertTrue(
+            acordeon_mdl1.get_identificador() != subacordeon_mdl1.get_identificador()
+        )
+        self.assertTrue(
+            acordeon_mdl1.get_identificador() != subacordeon_mdl2.get_identificador()
+        )
+        self.assertTrue(
+            acordeon_mdl2.get_identificador() != subacordeon_mdl1.get_identificador()
+        )
+        self.assertTrue(
+            acordeon_mdl2.get_identificador() != subacordeon_mdl2.get_identificador()
+        )
+        self.assertTrue(
+            subacordeon_mdl1.get_identificador() != subacordeon_mdl2.get_identificador()
+        )
+
     def test_create_modelo_acordeon_con_sub_acordeon_guardar_bd(self):
         """Un Acordeon puede tener Sub Acordeones y se pueden guardar en la BD"""
 
