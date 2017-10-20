@@ -6,4 +6,6 @@ urlpatterns = [
     url(r'^$', index, name='accordion-index'),
     url(r'^acordeon/$', accordionList, name='accordion-list'),
     url(r'^crear-acordeon/$', accordionCreate, name='accordion-create'),
+    url(r'^editar-acordeon/(?P<accordion_id>[\w\-]+)$', accordionEdit, name='accordion-edit'),
+    url(r'^eliminar-acordeon/(?P<accordion_id>[\w\-]+)$', accordionDelete, name='accordion-delete'),
 ]

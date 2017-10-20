@@ -4,7 +4,7 @@ from django.db import models
 
 
 class AccordionAbstract(models.Model):
-    acordion_id = models.UUIDField(
+    accordion_id = models.UUIDField(
         u'Id del acordeon',
         default=uuid.uuid4,
         editable=False
@@ -58,4 +58,4 @@ class Accordion(AccordionAbstract):
         return str(self.id)
 
     def get_uuid_as_str(self):
-        return str(self.acordion_id)
+        return str(self.accordion_id)

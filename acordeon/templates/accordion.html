@@ -1,8 +1,12 @@
 <hr>
 <div class="row">
     <div class="col-lg-1 accordion-options">
-        <a href="#" class="accordion-option blue-hover"><div><i class="fa fa-pencil" aria-hidden="true"></i></div></a>
-        <a href="#" class="accordion-option red-hover"><div><i class="fa fa-trash-o" aria-hidden="true"></i></div></a>
+        <a href="{% url 'main:accordion-edit' accordion_id=accordion.get_uuid_as_str %}" class="accordion-option blue-hover edit-button">
+            <div><i class="fa fa-pencil" aria-hidden="true"></i></div>
+        </a>
+        <a href="{% url 'main:accordion-delete' accordion_id=accordion.get_uuid_as_str %}" class="accordion-option red-hover delete-button">
+            <div><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+        </a>
     </div>   
     <div class="col-lg-11">
         <div class="accordion panel panel-default" style='width: {{accordion.width}}%;'>
@@ -22,5 +26,7 @@
         {% for panel in accordion.panels.all %}
             {% include "accordion.html" with accordion=panel %}
         {% endfor %}        
-    </div>   
+    </div> 
 </div>
+
+
