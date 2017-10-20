@@ -11,7 +11,20 @@
             <div class="modal-body">
                 <form id="accordion-create-form" method="POST" class="post-form" novalidate>
                     {% csrf_token %}
-                    {% bootstrap_form accordionForm %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {% bootstrap_field accordionForm.title %}
+                            {% bootstrap_field accordionForm.title_style %}
+                            {% bootstrap_field accordionForm.content %}
+                            {% bootstrap_field accordionForm.content_style %}
+                        </div>
+                        <div class="col-lg-6">
+                            {% bootstrap_field  accordionForm.width %}
+                            {% bootstrap_field accordionForm.height %}
+                            {% bootstrap_field accordionForm.panels %}
+                            {% bootstrap_field accordionForm.style %}
+                        </div>
+                    </div>
                     <button type="submit" class="save btn btn-default" id="accordion-create-submit">Crear</button>
                 </form>
             </div>
