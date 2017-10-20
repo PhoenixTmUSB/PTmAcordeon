@@ -1,16 +1,18 @@
 from django.test import TestCase
 
-# Realiza pruebas a la vista encargada de renderizar los acordeones de un usuario
 from main.forms import AccordionForm
 from main.models import Accordion
 
 
+# Realiza pruebas a la vista encargada de crear acordeones
 class TestAcordeonView(TestCase):
     def test_acordeon_crear_funcionando_get(self):
+        "Checkea que se pueda acceder a la vista crear acordeon"
         response = self.client.get('/crear-acordeon/')
         self.assertEqual(response.status_code, 200)
 
     def test_acordeon_crear_funcionando_post(self):
+        "Checkea que la vista esté funcionando para crear un acordeon"
         acordeon_mdl = Accordion(
             title="titulo2",
             title_style="titulo_estilo2",
