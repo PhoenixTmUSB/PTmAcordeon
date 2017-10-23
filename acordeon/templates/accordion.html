@@ -8,10 +8,15 @@
     <div class="col-lg-11">
         <!-- Print parent panel -->
         <div class="panel-group" id="accordion-{{accordion.get_uuid_as_str}}">
-            <div class="panel panel-default" style='width: {{accordion.width}}%;{{accordion.style}}'>
+            <style type="text/css">
+                .parent_{{accordion.get_uuid_as_str}} {
+                    {{ accordion.title_style }};
+                }
+            </style>
+            <div id="parent_{{accordion.get_uuid_as_str}}" class="panel panel-default" style='width: {{accordion.width}}%;{{accordion.style}}'>
                 <a data-toggle="collapse" data-parent="#accordion-{{accordion.get_uuid_as_str}}" href="#{{accordion.get_uuid_as_str}}">
                     <div class="panel-heading" role="tab" id="head-{{accordion.get_uuid_as_str}}" style="height: {{ accordion.height }}px">
-                            <h4 class="panel-title " style="display: inline-block; {{ accordion.title_style }};">
+                            <h4 class="panel-title " style="display: inline-block;">
                                 {{ accordion.title | default:"Link collapsable" }}
                             </h4>
                             <a href="{% url 'main:accordion-delete' accordion_id=accordion.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button">
@@ -32,8 +37,13 @@
 
         <!-- Print child panels, if any -->
         {% for child_panel in accordion.get_child_panels %}
-            <div class="panel panel-default" style='width: {{child_panel.width}}%;{{child_panel.style}}'>
-                <a data-toggle="collapse" href="#{{ child_panel.get_uuid_as_str }}" data-parent="#accordion-{{accordion.get_uuid_as_str}}">
+            <style type="text/css">
+                .parent_{{child_panel.get_uuid_as_str}} {
+                    {{child_panel.style}};
+                }
+            </style>
+            <div id="parent_{{child_panel.get_uuid_as_str}}" class="panel panel-default" style='width: {{child_panel.width}}%;{{child_panel.style}}'>
+                <a data-toggle="collapse" href="#{{ child_panel.get_uuid_as_str }}" data-parent="#accordion-{{child_panel.get_uuid_as_str}}">
                     <div class="panel-heading" style="height: {{ child_panel.height }}px;">
                         <h4 class="panel-title" style="display: inline-block; {{ child_panel.title_style }};">
                             {{ child_panel.title | default:"Link collapsable" }}
