@@ -1,0 +1,11 @@
+{% extends 'index.html' %}
+{% block content %}
+<div>
+	{% for minesweep in list %}
+		<h3>Minesweep {{ minesweep }}</h3>
+		<p>Contenido: {{ minesweep.content }}</p>
+		<p>Width: {{ minesweep.width }}</p>
+		<p>Height: {{ minesweep.height }}</p>
+	{% endfor %}
+</div>
+{% endblock %}

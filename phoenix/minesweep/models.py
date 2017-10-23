@@ -14,6 +14,11 @@ class Minesweep(models.Model):
         blank=True,
         null=True
     )
+    content_style = models.TextField(
+        u'Estilos del contenido',
+        blank=True,
+        null=True
+    )    
     width = models.CharField(
         u'Ancho (%)',
         max_length=50,
