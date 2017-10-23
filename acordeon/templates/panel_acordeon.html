@@ -1,6 +1,6 @@
-        <div class="panel panel-default" width="{{ acordeon.width }}" height="{{ acordeon.height }}" 
+        <div class="panel panel-default" width="{{ acordeon.width }}" height="{{ acordeon.height }}"
             style="{{ acordeon.style }}">
-            <div class="panel-heading" style="{{ acordeon.title_style }}">
+            <div class="panel-heading" style="color:{{ acordeon.title_style }}">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" href="#{{ acordeon.get_name_for_id }}">{{ acordeon.title | default:"Link collapsable" }}</a>
                 </h4>
@@ -16,7 +16,5 @@
                             {% include "panel_acordeon.html" with acordeon=sub_acc nombrecualquiera=forloop.first only %}
                         {% endfor %}
                     </div>
-                </div>            
+                </div>
         </div>
-
-
