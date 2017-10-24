@@ -10,6 +10,8 @@ from django.urls import reverse
 from .forms import AccordionForm
 from .models import *
 
+from minesweep.forms import MinesweepForm
+
 
 ## Home, vista inicial que ven los usuarios
 def index(request):
@@ -17,7 +19,8 @@ def index(request):
         request,
         'index.html',
         context={
-            'accordionForm': AccordionForm
+            'accordionForm': AccordionForm,
+            'minesweepForm': MinesweepForm,
         }
     )
 
@@ -30,6 +33,7 @@ def accordionList(request):
         context={
             'list': Accordion.objects.all(),
             'accordionForm': AccordionForm,
+            'minesweepForm': MinesweepForm,
         }
     )
 

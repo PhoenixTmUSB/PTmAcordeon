@@ -1,6 +1,7 @@
 {% load static bootstrap3 %}
 
 <!-- Accordion modal -->
+{% if accordionForm %}
 <div id="accordion-create-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="accordionCreateModal">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
@@ -31,4 +32,5 @@
         </div>
     </div>
 </div>
+{% endif %}
 <!-- End accordion modal -->
