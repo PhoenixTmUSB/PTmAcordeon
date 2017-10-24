@@ -2,10 +2,20 @@
 {% block content %}
 <div>
 	{% for minesweep in list %}
-		<h3>Minesweep {{ minesweep }}</h3>
-		<p>Contenido: {{ minesweep.content }}</p>
-		<p>Width: {{ minesweep.width }}</p>
-		<p>Height: {{ minesweep.height }}</p>
+		{% include 'minesweep.html' with minesweep=minesweep only%}
 	{% endfor %}
 </div>
+{% endblock %}
+{% block extraJS %}
+<script language="JavaScript">
+$(document).ready(function () {
+    $('.delete-button').click(function(event) {
+        event.preventDefault();
+        var opt = confirm("Seguro que quiere eliminar el minesweep seleccionado?");
+        if (opt){
+            location.href = $(this).attr('href');
+        }
+    });
+});
+</script>
 {% endblock %}

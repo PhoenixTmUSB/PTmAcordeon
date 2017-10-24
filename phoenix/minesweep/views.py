@@ -9,6 +9,8 @@ from django.urls import reverse
 from .models import *
 from .forms import *
 
+from accordion.forms import AccordionForm
+
 # Create your views here.
 
 # View to list minesweeps
@@ -17,7 +19,9 @@ def minesweepList(request):
 		request,
 		'list_minesweep.html',
 		context={
-			'list': Minesweep.objects.all()
+			'list': Minesweep.objects.all(),
+            'accordionForm': AccordionForm,
+            'minesweepForm': MinesweepForm,
 		}
 	)
 
@@ -43,3 +47,39 @@ def minesweepCreate(request):
         context['minesweepForm'] = MinesweepForm()
 
     return render(request, 'index.html', context, status=400)
+
+# View to edit minesweeps
+def minesweepEdit(request, minesweep_id):
+    # Initialize context and search for minesweep to edit
+    try:
+        minesweep = Minesweep.objects.get(minesweep_id=minesweep_id)
+    except ObjectDoesNotExist:
+        raise ObjectDoesNotExist()
+
+    context = {
+        'minesweepForm': MinesweepForm(),
+        'minesweep': minesweep
+    }
+
+    if request.method == 'POST':
+        form = MinesweepForm(request.POST or None, instance=minesweep)
+        context['minesweepFormEdit'] = form
+
+        if form.is_valid():
+            form.save()
+    else:
+        context['minesweepFormEdit'] = MinesweepForm(instance=minesweep)
+
+    return render(request, 'edit_minesweep.html', context)
+
+# View to delete minesweeps
+def minesweepDelete(request, minesweep_id):
+    # Get accordion to delete and delete it
+    if request.method == 'GET':
+        try:
+            minesweep = Minesweep.objects.get(minesweep_id=minesweep_id)
+        except ObjectDoesNotExist:
+            raise ObjectDoesNotExist()
+        minesweep.delete()
+
+    return redirect('minesweep:minesweep-list')

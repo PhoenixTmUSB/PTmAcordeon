@@ -33,6 +33,7 @@ def accordionList(request):
         context={
             'list': Accordion.objects.all(),
             'accordionForm': AccordionForm,
+            'minesweepForm': MinesweepForm,
         }
     )
 
