@@ -1,9 +1,4 @@
-<div class="row">
-    <div class="col-lg-1 minesweep-options">
-        <a href="{% url 'minesweep:minesweep-delete' minesweep_id=minesweep.get_uuid_as_str %}" class="minesweep-option red-hover delete-button">
-            <div><i class="fa fa-trash-o" aria-hidden="true"></i></div>
-        </a>
-    </div>  
+<div class="row"> 
     <div class="col-lg-11">
         <div class="panel panel-default tooltipster" data-tooltip-content="#tooltip_content" id="minesweep-{{minesweep.get_uuid_as_str}}" style="width: {{minesweep.width}}%;">
 
