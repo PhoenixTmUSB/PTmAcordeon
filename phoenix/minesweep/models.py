@@ -9,6 +9,11 @@ class Minesweep(models.Model):
         default=uuid.uuid4,
         editable = False
     )
+    tooltip = models.TextField(
+        u'Información del tooltip',
+        blank=True,
+        null=True
+    )
     content = models.TextField(
         u'Contenido',
         blank=True,

@@ -1,13 +1,13 @@
-<hr>
+    <hr>
 <label>Preview: </label>
 <div class="row">
     <div class="col-lg-11">
         <!-- Print parent panel -->
         <div class="panel-group" id="minesweep-{{minesweep.get_uuid_as_str}}">
-            <div id="{{minesweep.get_uuid_as_str}}" class="panel panel-default" style='width: {{minesweep.width}}%;'>
+            <div id="{{minesweep.get_uuid_as_str}}" class="panel panel-default tooltipster" data-tooltip-content="#tooltip_content" style='width: {{minesweep.width}}%;'>
                 <a data-toggle="collapse" data-parent="#minesweep-{{minesweep.get_uuid_as_str}}" href="#{{minesweep.get_uuid_as_str}}">
                     <div class="panel-heading" role="tab" id="head-{{minesweep.get_uuid_as_str}}" style="height: {{ minesweep.height }}px;{{ minesweep.content_style }}">
-                            <p> {{ minesweep.content|safe | default:"Paragraph" }} </p>
+                            <p> {{ minesweep.content | safe | default:"Paragraph" }} </p>
                     </div>
                 </a>
 
@@ -16,4 +16,8 @@
     </div>
 </div>
 
-
+<div class="tooltip_templates">
+    <span id="tooltip_content">
+        <p>{{ minesweep.tooltip | default:"This is a minesweep"}}</p>
+    </span>
+</div>

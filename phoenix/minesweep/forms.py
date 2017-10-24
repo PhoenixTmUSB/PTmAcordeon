@@ -8,6 +8,7 @@ class MinesweepForm(forms.ModelForm):
 	class Meta:
 		model = Minesweep
 		fields = [
+			'tooltip',
 			'content', 'content_style',
 			'width', 'height',
 		]

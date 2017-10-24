@@ -15,6 +15,7 @@
                     {% csrf_token %}
                     <div class="row">
                         <div class="col-lg-6">
+                            {% bootstrap_field minesweepForm.tooltip %}
                             {% bootstrap_field minesweepForm.content %}
                             {% bootstrap_field minesweepForm.content_style %}
                         </div>

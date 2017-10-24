@@ -12,6 +12,11 @@
         <link rel="stylesheet" href="{% static 'css/styles.css' %}">
         <link rel="stylesheet" href="{% static 'css/modal-log-in.css' %}">
         <link rel="stylesheet" href="{% static 'css/styles-accordion.css' %}">
+        <link rel="stylesheet" href="{% static 'css/tooltipster.bundle.min.css' %}">
+
+        <style type="text/css">
+            .tooltip_templates { display: none; }
+        </style>
     </head>
 
     <body class="container-fluid">
@@ -306,5 +311,12 @@
         </script>
         {% block extraJS %}
         {% endblock %}
+
+        <script src="{% static 'js/tooltipster.bundle.min.js' %}"></script>
+        <script>
+            $(document).ready(function() {
+                $('.tooltipster').tooltipster();
+            })
+        </script>
     </body>
 </html>

@@ -2,7 +2,7 @@
 {% block content %}
 <div>
 	{% for minesweep in list %}
-		{% include 'minesweep.html' with minesweep=minesweep only%}
+		{% include 'minesweep.html' with minesweep=minesweep %}
 	{% endfor %}
 </div>
 {% endblock %}
