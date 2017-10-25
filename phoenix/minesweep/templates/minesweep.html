@@ -1,0 +1,41 @@
+<div class="row"> 
+    <div class="col-lg-11">
+        <div class="panel panel-default tooltipster" data-tooltip-content="#minesweep-{{minesweep.get_uuid_as_str}}" id="content_{{minesweep.get_uuid_as_str}}">
+
+            <div class="panel-heading" role="tab">
+                
+                <p style="display: inline-block;">
+                    <style type="text/css">
+                        .content_{{minesweep.get_uuid_as_str}} {
+                            {{ minesweep.content_style }};
+                        }
+                    </style>                    
+                    {{ minesweep.content | safe | default:"This is a minesweep"}}
+                </p>
+
+                <a href="{% url 'minesweep:minesweep-delete' minesweep_id=minesweep.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button">
+                    <div><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+                </a>
+                <a href="{% url 'minesweep:minesweep-edit' minesweep_id=minesweep.get_uuid_as_str %}" class="blue-hover edit-panel-button pull-right">
+                    <div><i class="fa fa-pencil" aria-hidden="true"></i></div>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<style type="text/css">
+    .parent_{{accordion.get_uuid_as_str}} {
+        width: {{minesweep.width}}%;
+        height: {{ minesweep.height }}px;
+        {{ minesweep.tooltip_style }};
+    }
+</style>
+<div class="tooltip_templates">    
+    <span id="minesweep-{{minesweep.get_uuid_as_str}}">
+        <p>{{ minesweep.tooltip | safe | default:"This is a minesweep"}}</p>
+    </span>
+</div>

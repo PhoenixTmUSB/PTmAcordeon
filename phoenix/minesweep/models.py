@@ -14,6 +14,11 @@ class Minesweep(models.Model):
         blank=True,
         null=True
     )
+    tooltip_style = models.TextField(
+        u'Estilos del tooltip',
+        blank=True,
+        null=True
+    )        
     content = models.TextField(
         u'Contenido',
         blank=True,
@@ -36,7 +41,7 @@ class Minesweep(models.Model):
         max_length=50,
         blank=True,
         null=True,
-        default='30'
+        default="30",
     )
 
     def __str__(self):
