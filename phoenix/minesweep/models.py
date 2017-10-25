@@ -1,13 +1,12 @@
-import uuid;
+import uuid
 from django.db import models
 
-# Create your models here.
 
 class Minesweep(models.Model):
     minesweep_id = models.UUIDField(
         u'Id del minesweep',
         default=uuid.uuid4,
-        editable = False
+        editable=False
     )
     tooltip = models.TextField(
         u'Información del tooltip',
@@ -18,7 +17,7 @@ class Minesweep(models.Model):
         u'Estilos del tooltip',
         blank=True,
         null=True
-    )        
+    )
     content = models.TextField(
         u'Contenido',
         blank=True,
@@ -28,7 +27,7 @@ class Minesweep(models.Model):
         u'Estilos del contenido',
         blank=True,
         null=True
-    )    
+    )
     width = models.CharField(
         u'Ancho (%)',
         max_length=50,
@@ -41,7 +40,7 @@ class Minesweep(models.Model):
         max_length=50,
         blank=True,
         null=True,
-        default="30",
+        default='30'
     )
 
     def __str__(self):

@@ -2,12 +2,12 @@
 import uuid
 from django.contrib.auth.models import User
 from django.db import models
-from decimal import Decimal
 
 
 class BaseAccordionManager(models.Manager):
     def get_queryset(self):
         return super(BaseAccordionManager, self).get_queryset().filter(parent=None)
+
 
 # Abstracción de un proyecto creado por el usuario
 # Un proyecto puede contener distintos patrones / solo 1 de cada 1
@@ -26,7 +26,7 @@ class Project(models.Model):
         User,
         null=False,
         on_delete=models.CASCADE,
-        related_name="project_acordion"
+        related_name='project_acordion'
     )
 
 
@@ -85,7 +85,7 @@ class Accordion(AccordionAbstract):
         'self',
         null=True,
         blank=True,
-        related_name="panels"
+        related_name='panels'
     )
 
     # objects returns accordions that have no parent.
