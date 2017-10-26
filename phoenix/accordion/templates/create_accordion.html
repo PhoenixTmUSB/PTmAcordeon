@@ -1,0 +1,36 @@
+{% load static bootstrap3 %}
+
+<!-- Accordion modal -->
+{% if accordionForm %}
+<div id="accordion-create-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="accordionCreateModal">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Crear Acordeon</h4>
+            </div>
+            <div class="modal-body">
+                <form id="accordion-create-form" method="POST" class="post-form" novalidate>
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-lg-6">
+                            {% bootstrap_field accordionForm.title %}
+                            {% bootstrap_field accordionForm.title_style %}
+                            {% bootstrap_field accordionForm.content %}
+                            {% bootstrap_field accordionForm.content_style %}
+                        </div>
+                        <div class="col-lg-6">
+                            {% bootstrap_field  accordionForm.width %}
+                            {% bootstrap_field accordionForm.height %}
+                            {% bootstrap_field accordionForm.panels %}
+                            {% bootstrap_field accordionForm.style %}
+                        </div>
+                    </div>
+                    <button type="submit" class="save btn btn-default" id="accordion-create-submit">Crear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+<!-- End accordion modal -->
