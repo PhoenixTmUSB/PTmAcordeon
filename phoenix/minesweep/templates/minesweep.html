@@ -1,15 +1,14 @@
 <div class="row"> 
     <div class="col-lg-11">
-        <div class="panel panel-default tooltipster" data-tooltip-content="#minesweep-{{minesweep.get_uuid_as_str}}" id="content_{{minesweep.get_uuid_as_str}}">
+        <style type="text/css">
+            #content_{{minesweep.get_uuid_as_str}} {
+                {{ minesweep.content_style }};
+            }
+        </style>    
+        <div class="panel tooltipster" data-tooltip-content="#minesweep-{{minesweep.get_uuid_as_str}}">
 
-            <div class="panel-heading" role="tab">
-                
-                <p style="display: inline-block;">
-                    <style type="text/css">
-                        .content_{{minesweep.get_uuid_as_str}} {
-                            {{ minesweep.content_style }};
-                        }
-                    </style>                    
+            <div class="panel-heading" role="tab">                                    
+                <p style="display: inline-block;" id="content_{{minesweep.get_uuid_as_str}}">
                     {{ minesweep.content | safe | default:"This is a minesweep"}}
                 </p>
 
@@ -28,7 +27,7 @@
 
 
 <style type="text/css">
-    .parent_{{accordion.get_uuid_as_str}} {
+    #minesweep-{{minesweep.get_uuid_as_str}} {
         width: {{minesweep.width}}%;
         height: {{ minesweep.height }}px;
         {{ minesweep.tooltip_style }};
