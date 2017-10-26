@@ -7,7 +7,7 @@ from decimal import Decimal
 
 class BaseAccordionManager(models.Manager):
     def get_queryset(self):
-        return super(BaseAccordionManager, self).get_queryset().filter(parent=None)
+        return super(BaseAccordionManager, self).get_queryset().filter(parent=None).order_by('id')
 
 # Abstracción de un proyecto creado por el usuario
 # Un proyecto puede contener distintos patrones / solo 1 de cada 1
@@ -100,5 +100,5 @@ class Accordion(AccordionAbstract):
         return str(self.accordion_id)
 
     def get_child_panels(self):
-        panels = Accordion.all_objects.filter(parent=self.id)
+        panels = Accordion.all_objects.filter(parent=self.id).order_by('id')
         return panels

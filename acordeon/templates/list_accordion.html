@@ -12,7 +12,7 @@
 $(document).ready(function () {
     $('.delete-button').click(function(event) {
         event.preventDefault();
-        var opt = confirm("Seguro que quiere eliminar el accordeon seleccionado?");
+        var opt = confirm("Seguro que quiere eliminar el item seleccionado?");
         if (opt){
             location.href = $(this).attr('href');
         }

@@ -85,7 +85,6 @@ html,body{
     margin: 15px auto;
 
     height: 90%;
-    overflow-x: scroll;
 }
 
 /* override efrule style to take out the overflow */

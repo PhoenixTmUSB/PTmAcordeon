@@ -15,6 +15,10 @@
     Red hover buttons       #ff6666
 
 */
+.panel{
+    position: relative;
+}
+
 .accordion-options{
     width: 5% !important;
 }
@@ -39,12 +43,13 @@
     margin-top: 6px;
 }
 
-.edit-panel-button{
-    display: inline-block;
-    margin: 0 7px;
+.panel-options{
+    position: absolute;
+    right: 15px;
+    top: 0;
+    margin-top: 5px;
 }
 
-.delete-panel-button{
-    display: inline-block;
-    margin: 0 7px;
+.panel-options a{
+    margin: 0 5px;
 }
