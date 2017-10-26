@@ -22,10 +22,10 @@
                     </div>
                 </a>
                 <div class="panel-options">
-                    <a href="{% url 'main:accordion-delete' accordion_id=accordion.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button">
+                    <a href="{% url 'accordion:accordion-delete' accordion_id=accordion.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button">
                         <div><i class="fa fa-trash-o" aria-hidden="true"></i></div>
                     </a>
-                    <a href="{% url 'main:accordion-edit' accordion_id=accordion.get_uuid_as_str %}" class="blue-hover edit-panel-button pull-right">
+                    <a href="{% url 'accordion:accordion-edit' accordion_id=accordion.get_uuid_as_str %}" class="blue-hover edit-panel-button pull-right">
                         <div><i class="fa fa-pencil" aria-hidden="true"></i></div>
                     </a>
                 </div>
@@ -46,10 +46,10 @@
                     </div>
                 </a>
                 <div class="panel-options">
-                    <a href="{% url 'main:accordion-delete' accordion_id=child_panel.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button">
+                    <a href="{% url 'accordion:accordion-delete' accordion_id=child_panel.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button">
                         <div><i class="fa fa-trash-o" aria-hidden="true"></i></div>
                     </a>
-                    <a href="{% url 'main:accordion-edit' accordion_id=child_panel.get_uuid_as_str %}" class="blue-hover edit-panel-button pull-right">
+                    <a href="{% url 'accordion:accordion-edit' accordion_id=child_panel.get_uuid_as_str %}" class="blue-hover edit-panel-button pull-right">
                         <div><i class="fa fa-pencil" aria-hidden="true"></i></div>
                     </a>
                 </div>
