@@ -308,14 +308,24 @@
                 })                
             });
         </script>
-        {% block extraJS %}
-        {% endblock %}
 
         <script src="{% static 'js/tooltipster.bundle.min.js' %}"></script>
+        
         <script>
-            $(document).ready(function() {
-                $('.tooltipster').tooltipster();
-            })
+            $('.tooltipster-top').tooltipster({side:'top'});
         </script>
+        <script>
+            $('.tooltipster-bottom').tooltipster({side:'bottom'});
+        </script>
+        <script>
+            $('.tooltipster-right').tooltipster({side:'right'});
+        </script>
+        <script>
+            $('.tooltipster-left').tooltipster({side:'left'});
+        </script>
+
+
+        {% block extraJS %}
+        {% endblock %}
     </body>
 </html>
