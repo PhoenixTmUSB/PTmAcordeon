@@ -3,6 +3,18 @@ from django.db import models
 
 
 class Minesweep(models.Model):
+    SIDE_CHOICES = (
+        ('top', 'arriba'),
+        ('bottom', 'abajo'),
+        ('right', 'derecha'),
+        ('left', 'izquierda'),
+    )
+    tooltip_side = models.CharField(
+        u'Lado del tootlip',
+        max_length=6,
+        choices=SIDE_CHOICES,
+        default='arriba'
+    )
     minesweep_id = models.UUIDField(
         u'Id del minesweep',
         default=uuid.uuid4,
