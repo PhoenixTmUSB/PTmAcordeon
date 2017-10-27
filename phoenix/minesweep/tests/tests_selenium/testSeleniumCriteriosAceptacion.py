@@ -6,6 +6,7 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 from minesweep.models import Minesweep
 
 class TestSeleniumCriteriosAceptacion(StaticLiveServerTestCase):
+
     @classmethod
     def setUpClass(cls):
         super(TestSeleniumCriteriosAceptacion, cls).setUpClass()
