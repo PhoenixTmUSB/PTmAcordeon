@@ -68,7 +68,7 @@ $ pip install selenium
 
 Se utilizará Firefox para ejecutar las pruebas, por lo que necesitas descargarle un driver [aquí](https://github.com/mozilla/geckodriver/releases/tag/v0.19.0) dependiendo de tu **SO**.
 
-Si usas **Linux**, asegurate que el driver está en el **PATH** , colocalo en  */usr/bin* or */usr/local/bin*.
+Si usas **Linux**, asegurate que el driver está en el **PATH** , colocalo en  */usr/bin* o */usr/local/bin*.
 
 ### Ejecutar las pruebas
 
