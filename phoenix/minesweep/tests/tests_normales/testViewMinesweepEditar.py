@@ -13,6 +13,7 @@ class TestMinesweepEdit(TestCase):
             content_style="content_style",
             width="123",
             height="987",
+            tooltip_side='bottom',
         )
 
     def test_minesweep_editar_funcionando_get(self):
@@ -28,6 +29,7 @@ class TestMinesweepEdit(TestCase):
         form = MinesweepForm(None, instance=self.minesweep_mdl)
 
         data = {key: form.initial.get(key, '') + '_12' for key in form.initial.keys()}
+        data['tooltip_side'] = 'right'
 
         response = self.client.post(
             '/editar-minesweep/' + str(self.minesweep_mdl.minesweep_id),
@@ -44,3 +46,4 @@ class TestMinesweepEdit(TestCase):
         self.assertEqual(self.minesweep_mdl.content_style + '_12', minesweep_mdl_bd.content_style)
         self.assertEqual(self.minesweep_mdl.width + '_12', minesweep_mdl_bd.width)
         self.assertEqual(self.minesweep_mdl.height + '_12', minesweep_mdl_bd.height)
+        self.assertEqual('right', minesweep_mdl_bd.tooltip_side)

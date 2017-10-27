@@ -20,6 +20,7 @@ class TesMinesweepView(TestCase):
             content_style="content_style",
             width="123",
             height="987",
+            tooltip_side = 'bottom',
         )
 
         form = MinesweepForm(None, instance=minesweep_mdl)
@@ -40,3 +41,4 @@ class TesMinesweepView(TestCase):
         self.assertEqual(minesweep_mdl.content_style, minesweep_mdl_bd.content_style)
         self.assertEqual(minesweep_mdl.width, minesweep_mdl_bd.width)
         self.assertEqual(minesweep_mdl.height, minesweep_mdl_bd.height)
+        self.assertEqual(minesweep_mdl.tooltip_side, minesweep_mdl_bd.tooltip_side)

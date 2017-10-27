@@ -12,6 +12,7 @@ class TestMinesweepEliminar(TestCase):
             content_style="content_style",
             width="123",
             height="987",
+            tooltip_side='bottom',
         )
 
     def test_minesweep_eliminar_funcionando_get(self):
