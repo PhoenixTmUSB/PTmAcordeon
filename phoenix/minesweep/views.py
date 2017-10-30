@@ -9,6 +9,7 @@ from .models import *
 from .forms import *
 
 from accordion.forms import AccordionForm
+from tab.forms import TabForm
 
 # View to list minesweeps
 def minesweepList(request):
