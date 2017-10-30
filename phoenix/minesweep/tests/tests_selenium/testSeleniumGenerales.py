@@ -1,4 +1,5 @@
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium import webdriver
 from selenium.webdriver.firefox.webdriver import WebDriver
 
 ## Chequea que la página minesweep funcione correctamente
@@ -6,7 +7,7 @@ class TestSeleniumMinesweep(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super(TestSeleniumMinesweep, cls).setUpClass()
-        cls.selenium = WebDriver()
+        cls.selenium = webdriver.Firefox()
         cls.selenium.implicitly_wait(0)
 
     @classmethod
