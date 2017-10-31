@@ -11,6 +11,7 @@ from .forms import AccordionForm
 from .models import *
 
 from minesweep.forms import MinesweepForm
+from tab.forms import TabForm
 
 
 ## Home, vista inicial que ven los usuarios
@@ -21,6 +22,7 @@ def index(request):
         context={
             'accordionForm': AccordionForm,
             'minesweepForm': MinesweepForm,
+            'tabForm': TabForm,
         }
     )
 
@@ -34,6 +36,7 @@ def accordionList(request):
             'list': Accordion.objects.all(),
             'accordionForm': AccordionForm,
             'minesweepForm': MinesweepForm,
+            'tabForm': TabForm,
         }
     )
 

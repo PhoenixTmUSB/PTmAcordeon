@@ -30,29 +30,35 @@ class Project(models.Model):
     )
 
 
-class AccordionAbstract(models.Model):
-    accordion_id = models.UUIDField(
-        u'Id del acordeon',
-        default=uuid.uuid4,
-        editable=False
-    )
-
-    title = models.CharField(
-        u'Título',
-        max_length=50
-    )
-    title_style = models.TextField(
-        u'Estilos del Título',
-        blank=True,
-        null=True
-    )
+class PatronAbstract(models.Model):
+    """docstring for ClassName"""
     content = models.TextField(
         u'Contenido',
         blank=True,
         null=True
     )
+    content_color = models.TextField(
+        u'Color del contenido',
+        blank=True,
+        null=True
+    )
     content_style = models.TextField(
         u'Estilos del contenido',
+        blank=True,
+        null=True
+    )
+    border_style = models.TextField(
+        u'Definir tipo de borde',
+        blank=True,
+        null=True
+    )
+    border_color = models.TextField(
+        u'Color del borde',
+        blank=True,
+        null=True
+    )
+    border_radius = models.TextField(
+        u'Radio del borde',
         blank=True,
         null=True
     )
@@ -71,7 +77,28 @@ class AccordionAbstract(models.Model):
         default='30'
     )
     style = models.TextField(
-        u'Estilos generales',
+        u'Extra CSS',
+        blank=True,
+        null=True
+    )
+
+    class Meta:
+        abstract = True
+
+
+class AccordionAbstract(PatronAbstract):
+    accordion_id = models.UUIDField(
+        u'Id del acordeon',
+        default=uuid.uuid4,
+        editable=False
+    )
+
+    title = models.CharField(
+        u'Título',
+        max_length=50
+    )
+    title_style = models.TextField(
+        u'Estilos del Título',
         blank=True,
         null=True
     )

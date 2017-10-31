@@ -19,5 +19,6 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^', include('accordion.urls', namespace='accordion')),
     url(r'^', include('minesweep.urls', namespace='minesweep')),
+    url(r'^', include('tab.urls', namespace='tab')),
     url(r'^admin/', admin.site.urls),
 ]

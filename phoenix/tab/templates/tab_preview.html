@@ -1,0 +1,20 @@
+<hr>
+<label>Preview: </label>
+<div class="row">
+    <div class="col-lg-11">
+        <!-- Print parent panel -->
+        <style type="text/css">
+            #tab-{{tab.get_uuid_as_str}} {
+                {{ tab.content_style }};
+            }
+        </style>            
+        <div class="panel-group">
+            <div class="panel panel-default">
+                    <div class="panel-heading" role="tab" id="tab-{{tab.get_uuid_as_str}}">
+                            <p> {{ tab.content | safe | default:"Paragraph" }} </p>
+                    </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -9,7 +9,7 @@
             }
         </style>            
         <div class="panel-group">
-            <div class="panel panel-default tooltipster" data-tooltip-content="#tooltip_content">
+            <div class="panel panel-default tooltipster-{{minesweep.tooltip_side}}" data-tooltip-content="#tooltip_content">
                     <div class="panel-heading" role="tab" id="minesweep-{{minesweep.get_uuid_as_str}}">
                             <p> {{ minesweep.content | safe | default:"Paragraph" }} </p>
                     </div>

@@ -1,8 +1,8 @@
 {% extends 'index.html' %}
 {% block content %}
 <div>
-	{% for minesweep in list %}
-		{% include 'minesweep.html' with minesweep=minesweep only %}
+	{% for tab in list %}
+		{% include 'tab.html' with tab=tab only %}
 	{% endfor %}
 </div>
 {% endblock %}
@@ -11,17 +11,11 @@
 $(document).ready(function () {
     $('.delete-button').click(function(event) {
         event.preventDefault();
-        var opt = confirm("Seguro que quiere eliminar el minesweep seleccionado?");
+        var opt = confirm("Seguro que quiere eliminar el tab seleccionado?");
         if (opt){
             location.href = $(this).attr('href');
         }
     });
 });
-
-$(document).ready(function() {
-    $('.tooltipster').tooltipster();
-})
 </script>
-
-
 {% endblock %}

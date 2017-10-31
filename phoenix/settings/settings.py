@@ -31,8 +31,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'minesweep.apps.MinesweepConfig',
     'accordion.apps.AccordionConfig',
+    'minesweep.apps.MinesweepConfig',
+    'tab.apps.TabConfig',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
