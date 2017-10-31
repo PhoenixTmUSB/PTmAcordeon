@@ -86,7 +86,13 @@ class PatronAbstract(models.Model):
         abstract = True
 
 
-class AccordionAbstract(PatronAbstract):
+class Accordion(PatronAbstract):
+    parent = models.ForeignKey(
+        'self',
+        null=True,
+        blank=True,
+        related_name='panels'
+    )
     accordion_id = models.UUIDField(
         u'Id del acordeon',
         default=uuid.uuid4,
@@ -101,19 +107,7 @@ class AccordionAbstract(PatronAbstract):
         u'Estilos del Título',
         blank=True,
         null=True
-    )
-
-    class Meta:
-        abstract = True
-
-
-class Accordion(AccordionAbstract):
-    parent = models.ForeignKey(
-        'self',
-        null=True,
-        blank=True,
-        related_name='panels'
-    )
+    )    
 
     # objects returns accordions that have no parent.
     # all_objects returns all accordions, with out without parents.

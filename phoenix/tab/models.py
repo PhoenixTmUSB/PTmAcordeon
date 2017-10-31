@@ -3,6 +3,15 @@ from django.db import models
 from accordion.models import PatronAbstract
 
 # Create your models here.
+class TabContainer(models.Model):
+    name = models.CharField(
+        u'Nombre del container',
+        max_length=100
+    )
+    children = models.IntegerField(
+        default=0
+    )
+
 class Tab(PatronAbstract):
     tab_id = models.UUIDField(
         u'Id del tab',
@@ -20,29 +29,8 @@ class Tab(PatronAbstract):
         blank=True,
         null=True
     )
-    content = models.TextField(
-        u'Contenido del tab',
-        blank=True,
-        null=True
-    )
-    content_style = models.TextField(
-        u'Estilos del contenido',
-        blank=True,
-        null=True
-    )
-    width = models.CharField(
-        u'Ancho (%)',
-        max_length=50,
-        blank=True,
-        null=True,
-        default='50'
-    )
-    height = models.CharField(
-        u'Alto (px)',
-        max_length=50,
-        blank=True,
-        null=True,
-        default='30'
+    order = models.IntegerField(
+        default=0
     )
 
     def __str__(self):
