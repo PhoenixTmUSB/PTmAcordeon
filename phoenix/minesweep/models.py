@@ -1,8 +1,9 @@
 import uuid
 from django.db import models
+from accordion.models import PatronAbstract
 
 
-class Minesweep(models.Model):
+class Minesweep(PatronAbstract):
     SIDE_CHOICES = (
         ('top', 'arriba'),
         ('bottom', 'abajo'),
@@ -29,30 +30,6 @@ class Minesweep(models.Model):
         u'Estilos del tooltip',
         blank=True,
         null=True
-    )
-    content = models.TextField(
-        u'Contenido',
-        blank=True,
-        null=True
-    )
-    content_style = models.TextField(
-        u'Estilos del contenido',
-        blank=True,
-        null=True
-    )
-    width = models.CharField(
-        u'Ancho (%)',
-        max_length=50,
-        blank=True,
-        null=True,
-        default='50'
-    )
-    height = models.CharField(
-        u'Alto (px)',
-        max_length=50,
-        blank=True,
-        null=True,
-        default='30'
     )
 
     def __str__(self):
