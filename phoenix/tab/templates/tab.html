@@ -7,19 +7,15 @@
                 <p style="display: inline-block;" id="content_{{tab.get_uuid_as_str}}">
                     {{ tab.content | safe | default:"This is its content"}}
                 </p>                
-                {% comment "Delete url" %}
-                {% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}
-                <a href="" class="red-hover delete-panel-button pull-right delete-button">
+
+                
+                <a href="{% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button">
                     <div><i class="fa fa-trash-o" style="margin-left: 8px;" aria-hidden="true"></i></div>
                 </a>                
-                {% endcomment %}
 
-                {% comment "Edit url" %}
-                {% url 'tab:tab-edit' tab_id=tab.get_uuid_as_str %}
-                <a href="" class="blue-hover edit-panel-button pull-right">
+                <a href="{% url 'tab:tab-edit' tab_id=tab.get_uuid_as_str %}" class="blue-hover edit-panel-button pull-right">
                     <div><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                </a>                
-                {% endcomment %}                
+                </a>                                
 
     </div>
 </div>

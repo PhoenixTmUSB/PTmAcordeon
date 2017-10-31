@@ -47,3 +47,39 @@ def tabCreate(request):
         context['tabForm'] = TabForm()
 
     return render(request, 'index.html', context, status=400)    
+
+# View to delete tabs
+def tabEdit(request, tab_id):
+    # Initialize context and search for tab to edit
+    try:
+        tab = Tab.objects.get(tab_id=tab_id)
+    except ObjectDoesNotExist:
+        raise ObjectDoesNotExist()
+
+    context = {
+        'tabForm': TabForm(),
+        'tab': tab
+    }
+
+    if request.method == 'POST':
+        form = TabForm(request.POST or None, instance=tab)
+        context['tabFormEdit'] = form
+
+        if form.is_valid():
+            form.save()
+    else:
+        context['tabFormEdit'] = TabForm(instance=tab)
+
+    return render(request, 'edit_tab.html', context)
+
+# View to delete tabs
+def tabDelete(request, tab_id):
+    # Get tab to delete and delete it
+    if request.method == 'GET':
+        try:
+            tab = Tab.objects.get(tab_id=tab_id)
+        except ObjectDoesNotExist:
+            raise ObjectDoesNotExist()
+        tab.delete()
+
+    return redirect('tab:tab-list')    
