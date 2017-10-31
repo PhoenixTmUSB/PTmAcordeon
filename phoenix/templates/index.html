@@ -223,6 +223,8 @@
         <script src="{% static 'js/jquery-ui.min.js' %}"></script>
         <script src="{% static 'js/jquery.ui.ruler.js' %}"></script>
         <script src="{% static 'js/csrf_tokens.js' %}"></script>
+        <script src="{% static 'js/tooltipster.bundle.min.js' %}"></script>
+
 
         {#   AGREGA VARIABLES QUE DEPENDEN DEL SERVIDOR AL SCRIPT EXTERNO     #}
         {#   En WP se llama localizar scripts     #}
@@ -311,11 +313,6 @@
         {% block extraJS %}
         {% endblock %}
 
-        <script src="{% static 'js/tooltipster.bundle.min.js' %}"></script>
-        <script>
-            $(document).ready(function() {
-                $('.tooltipster').tooltipster();
-            })
-        </script>
+ 
     </body>
 </html>

@@ -11,5 +11,12 @@
 <div class="col-md-7">
  {% include 'minesweep_preview.html' %}
 </div>
+{% block extraJS %}
+<script language="JavaScript">
+$(document).ready(function() {
+    $('.tooltipster').tooltipster();
+})
+</script>
+{% endblock %}
 
 {% endblock %}
