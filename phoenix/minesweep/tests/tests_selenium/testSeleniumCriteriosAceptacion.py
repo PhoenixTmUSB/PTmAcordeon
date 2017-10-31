@@ -1,4 +1,5 @@
 from selenium.webdriver.support.ui import Select
+from selenium import webdriver
 from time import sleep
 from django.contrib.auth.models import User
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
@@ -11,7 +12,7 @@ class TestSeleniumCriteriosAceptacion(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super(TestSeleniumCriteriosAceptacion, cls).setUpClass()
-        cls.selenium = WebDriver()
+        cls.selenium = webdriver.Firefox()
         cls.selenium.implicitly_wait(0)
 
     @classmethod

@@ -11,10 +11,6 @@ from .forms import *
 from accordion.forms import AccordionForm
 
 
-def tooltip_demo(request):
-    return render(request, 'tooltip_demo.html')
-
-
 # View to list minesweeps
 def minesweepList(request):
     return render(

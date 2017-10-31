@@ -3,6 +3,7 @@ from time import sleep
 import selenium
 from django.contrib.auth.models import User
 from django.contrib.staticfiles.testing import StaticLiveServerTestCase
+from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.firefox.webdriver import WebDriver
 from accordion.models import Accordion
@@ -12,7 +13,7 @@ class TestSeleniumHome(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super(TestSeleniumHome, cls).setUpClass()
-        cls.selenium = WebDriver()
+        cls.selenium = webdriver.Firefox()
         cls.selenium.implicitly_wait(0)
 
     @classmethod
@@ -31,7 +32,7 @@ class TestSeleniumAcordeon(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super(TestSeleniumAcordeon, cls).setUpClass()
-        cls.selenium = WebDriver()
+        cls.selenium = webdriver.Firefox()
         cls.selenium.implicitly_wait(0)
 
     @classmethod
@@ -59,7 +60,7 @@ class TestSeleniumUsuarioInicioSesion(StaticLiveServerTestCase):
     @classmethod
     def setUpClass(cls):
         super(TestSeleniumUsuarioInicioSesion, cls).setUpClass()
-        cls.selenium = WebDriver()
+        cls.selenium = webdriver.Firefox()
         cls.selenium.implicitly_wait(0)
 
         cls.user_pass_txt = 'soyunapasssegura'
