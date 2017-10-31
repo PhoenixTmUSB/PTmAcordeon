@@ -60,6 +60,12 @@ $ python manage.py runserver
 
 Se realizaron pruebas unitarias y pruebas de integración, algunas con [Selenium](http://selenium-python.readthedocs.io/).
 
+### Crear base de datos para tests
+Si da problemas al crear la base de datos de prueba hacer:
+```
+$ ALTER USER ptmadmin CREATEDB;
+```
+
 ### Instalar Selenium
 Para correr pruebas con [Selenium](http://selenium-python.readthedocs.io/) primero necesitas instalar el paquete:
 ```
