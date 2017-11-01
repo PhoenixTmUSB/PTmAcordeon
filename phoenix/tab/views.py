@@ -13,17 +13,21 @@ from minesweep.forms import MinesweepForm
 
 # Create your views here.
 
+
 def tabList(request):
     return render(
-    	request,
-    	'list_tab.html',
+        request,
+        'list_tab.html',
         context={
-        	'list': Tab.objects.all(),
+            'list': TabContainer.objects.all(),
+            # Tabs ordenadas por id
+            'tabs': Tab.objects.order_by('id'),
             'accordionForm': AccordionForm,
             'minesweepForm': MinesweepForm,
             'tabForm': TabForm,
-        }    	
+        }
     )
+
 
 # View to create Tabs
 def tabCreate(request):
@@ -32,9 +36,33 @@ def tabCreate(request):
     if request.method == 'POST':
         form = TabForm(request.POST)
         context['tabForm'] = form
-
         if form.is_valid():
-            form.save()
+            cleaned = form.cleaned_data
+            numbertabs = cleaned['number_tabs']
+
+            parent = TabContainer.objects.create(
+                name=cleaned['title'],
+                children_amount=numbertabs
+            )
+
+            # Se hace un Objeto Tab y se asignan los fields arbitrariamente
+            # Asignar el form.save() crea un solo elemento Tab
+            for i in range(0, numbertabs):
+                Tab(
+                    parent=parent,
+                    title=cleaned['title'],
+                    title_style=cleaned['title_style'],
+                    content=cleaned['content'],
+                    content_style=cleaned['content_style'],
+                    content_color=cleaned['content_color'],
+                    width=cleaned['width'],
+                    height=cleaned['height'],
+                    border_style=cleaned['border_style'],
+                    border_color=cleaned['border_color'],
+                    border_radius=['border_radius'],
+                    style=['style']
+                ).save()
+
             return HttpResponse(
                 content=json.dumps({"redirectTo": reverse('tab:tab-list')}),
                 content_type='application/json',
@@ -46,7 +74,8 @@ def tabCreate(request):
     else:
         context['tabForm'] = TabForm()
 
-    return render(request, 'index.html', context, status=400)    
+    return render(request, 'index.html', context, status=400)
+
 
 # View to delete tabs
 def tabEdit(request, tab_id):
@@ -72,6 +101,7 @@ def tabEdit(request, tab_id):
 
     return render(request, 'edit_tab.html', context)
 
+
 # View to delete tabs
 def tabDelete(request, tab_id):
     # Get tab to delete and delete it
@@ -82,4 +112,4 @@ def tabDelete(request, tab_id):
             raise ObjectDoesNotExist()
         tab.delete()
 
-    return redirect('tab:tab-list')    
+    return redirect('tab:tab-list')

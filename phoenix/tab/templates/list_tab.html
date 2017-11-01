@@ -1,8 +1,9 @@
 {% extends 'index.html' %}
 {% block content %}
 <div>
-	{% for tab in list %}
-		{% include 'tab.html' with tab=tab only %}
+	{% for container in list %}
+		{% include 'tab.html' with container=container tabs=tabs only %}
+
 	{% endfor %}
 </div>
 {% endblock %}

@@ -2,17 +2,27 @@ import uuid
 from django.db import models
 from accordion.models import PatronAbstract
 
+
 # Create your models here.
 class TabContainer(models.Model):
     name = models.CharField(
         u'Nombre del container',
-        max_length=100
+        max_length=100,
+        blank=True
     )
-    children = models.IntegerField(
-        default=0
+    children_amount = models.IntegerField(
+        default=1
     )
 
+    def __str__(self):
+        return self.name
+
 class Tab(PatronAbstract):
+    parent = models.ForeignKey(
+        TabContainer, on_delete=models.CASCADE,
+        null=True,
+        blank=True
+    )
     tab_id = models.UUIDField(
         u'Id del tab',
         default=uuid.uuid4,
@@ -28,9 +38,6 @@ class Tab(PatronAbstract):
         u'Estilos del titulo',
         blank=True,
         null=True
-    )
-    order = models.IntegerField(
-        default=0
     )
 
     def __str__(self):

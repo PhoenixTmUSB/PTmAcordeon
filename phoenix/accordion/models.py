@@ -2,6 +2,8 @@
 import uuid
 from django.contrib.auth.models import User
 from django.db import models
+from django.template.loader import render_to_string
+
 
 
 class BaseAccordionManager(models.Manager):
@@ -37,8 +39,9 @@ class PatronAbstract(models.Model):
         blank=True,
         null=True
     )
-    content_color = models.TextField(
+    content_color = models.CharField(
         u'Color del contenido',
+        max_length=50,
         blank=True,
         null=True
     )
@@ -52,15 +55,18 @@ class PatronAbstract(models.Model):
         blank=True,
         null=True
     )
-    border_color = models.TextField(
+    border_color = models.CharField(
         u'Color del borde',
+        max_length=50,
         blank=True,
         null=True
     )
-    border_radius = models.TextField(
-        u'Radio del borde',
+    border_radius = models.CharField(
+        u'Radio del borde (px)',
+        max_length=50,
         blank=True,
-        null=True
+        null=True,
+        default='0'
     )
     width = models.CharField(
         u'Ancho (%)',
@@ -84,6 +90,12 @@ class PatronAbstract(models.Model):
 
     class Meta:
         abstract = True
+
+    def toHtml(self, template_name, var_name):
+        return render_to_string(template_name, context={
+            var_name: self,
+        }
+    )
 
 
 class Accordion(PatronAbstract):
