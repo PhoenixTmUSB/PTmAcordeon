@@ -17,7 +17,11 @@ class TestAcordeonView(TestCase):
             title="titulo2",
             title_style="titulo_estilo2",
             content="contenido2",
+            content_color = "red",
             content_style="contenido_estilo2",
+            border_color = "blue",
+            border_style = "border_style",
+            border_radius = "2",
             width="1232",
             height="9872",
             style="estilo2",
@@ -38,7 +42,11 @@ class TestAcordeonView(TestCase):
 
         self.assertEqual(acordeon_mdl.title_style, acordeon_mdl_bd.title_style)
         self.assertEqual(acordeon_mdl.content, acordeon_mdl_bd.content)
+        self.assertEqual(acordeon_mdl.content_color, acordeon_mdl_bd.content_color)
         self.assertEqual(acordeon_mdl.content_style, acordeon_mdl_bd.content_style)
+        self.assertEqual(acordeon_mdl.border_color, acordeon_mdl_bd.border_color)
+        self.assertEqual(acordeon_mdl.border_radius, acordeon_mdl_bd.border_radius)
+        self.assertEqual(acordeon_mdl.border_style, acordeon_mdl_bd.border_style)
         self.assertEqual(acordeon_mdl.width, acordeon_mdl_bd.width)
         self.assertEqual(acordeon_mdl.height, acordeon_mdl_bd.height)
         self.assertEqual(acordeon_mdl.style, acordeon_mdl_bd.style)

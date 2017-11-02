@@ -17,30 +17,42 @@ class TestAcordeon(TestCase):
     def test_crear_un_acordeon_en_bd(self):
         """Modelo Acordeon se puede guardar en la bd con todos los campos"""
         acordeon_mdl = Accordion(
-            title="titulo",
-            title_style="titulo_estilo",
-            content="contenido",
-            content_style="contenido_estilo",
-            width="123",
-            height="987",
-            style="estilo",
+            title="titulo2",
+            title_style="titulo_estilo2",
+            content="contenido2",
+            content_color = "red",
+            content_style="contenido_estilo2",
+            border_color = "blue",
+            border_style = "border_style",
+            border_radius = "2",
+            width="1232",
+            height="9872",
+            style="estilo2",
         )
         acordeon_mdl.save()
 
         acordeon_mdl2 = Accordion.objects.get(
-            title="titulo",
-            title_style="titulo_estilo",
-            content="contenido",
-            content_style="contenido_estilo",
-            width="123",
-            height="987",
-            style="estilo"
+            title="titulo2",
+            title_style="titulo_estilo2",
+            content="contenido2",
+            content_color = "red",
+            content_style="contenido_estilo2",
+            border_color = "blue",
+            border_style = "border_style",
+            border_radius = "2",
+            width="1232",
+            height="9872",
+            style="estilo2",
         )
 
         self.assertEqual(acordeon_mdl.title, acordeon_mdl2.title)
         self.assertEqual(acordeon_mdl.title_style, acordeon_mdl2.title_style)
         self.assertEqual(acordeon_mdl.content, acordeon_mdl2.content)
+        self.assertEqual(acordeon_mdl.content_color, acordeon_mdl2.content_color)
         self.assertEqual(acordeon_mdl.content_style, acordeon_mdl2.content_style)
+        self.assertEqual(acordeon_mdl.border_color, acordeon_mdl2.border_color)
+        self.assertEqual(acordeon_mdl.border_style, acordeon_mdl2.border_style)
+        self.assertEqual(acordeon_mdl.border_radius, acordeon_mdl2.border_radius)
         self.assertEqual(acordeon_mdl.width, acordeon_mdl2.width)
         self.assertEqual(acordeon_mdl.height, acordeon_mdl2.height)
         self.assertEqual(acordeon_mdl.style, acordeon_mdl2.style)

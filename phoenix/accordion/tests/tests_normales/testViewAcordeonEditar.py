@@ -11,7 +11,11 @@ class TestAcordeonEdit(TestCase):
             title="titulo2",
             title_style="titulo_estilo2",
             content="contenido2",
+            content_color = "",
             content_style="contenido_estilo2",
+            border_color = "",
+            border_style = "",
+            border_radius = "",
             width="1232",
             height="9872",
             style="estilo2",
@@ -43,7 +47,11 @@ class TestAcordeonEdit(TestCase):
 
         self.assertEqual(self.acordeon_mdl.title_style + '_12', acordeon_mdl_bd.title_style)
         self.assertEqual(self.acordeon_mdl.content + '_12', acordeon_mdl_bd.content)
+        self.assertEqual(self.acordeon_mdl.content_color + '_12', acordeon_mdl_bd.content_color)
         self.assertEqual(self.acordeon_mdl.content_style + '_12', acordeon_mdl_bd.content_style)
+        self.assertEqual(self.acordeon_mdl.border_color + '_12', acordeon_mdl_bd.border_color)
+        self.assertEqual(self.acordeon_mdl.border_radius + '_12', acordeon_mdl_bd.border_radius)
+        self.assertEqual(self.acordeon_mdl.border_style + '_12', acordeon_mdl_bd.border_style)
         self.assertEqual(self.acordeon_mdl.width + '_12', acordeon_mdl_bd.width)
         self.assertEqual(self.acordeon_mdl.height + '_12', acordeon_mdl_bd.height)
         self.assertEqual(self.acordeon_mdl.style + '_12', acordeon_mdl_bd.style)
