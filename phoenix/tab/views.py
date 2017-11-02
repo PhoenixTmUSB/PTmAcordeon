@@ -19,7 +19,7 @@ def tabList(request):
         request,
         'list_tab.html',
         context={
-            'list': TabContainer.objects.all(),
+            'list': TabContainer.objects.order_by('id'),
             # Tabs ordenadas por id
             'tabs': Tab.objects.order_by('id'),
             'accordionForm': AccordionForm,
@@ -30,20 +30,28 @@ def tabList(request):
 
 
 # View to create Tabs
-def tabCreate(request):
+def tabCreate(request, container_id=None):
     context = {}
 
     if request.method == 'POST':
+
         form = TabForm(request.POST)
         context['tabForm'] = form
+
         if form.is_valid():
+
             cleaned = form.cleaned_data
             numbertabs = cleaned['number_tabs']
 
-            parent = TabContainer.objects.create(
-                name=cleaned['title'],
-                children_amount=numbertabs
-            )
+            try:
+                parent = TabContainer.objects.get(id=container_id)
+                parent.children_amount += numbertabs
+                parent.save()
+            except ObjectDoesNotExist:
+                parent = TabContainer.objects.create(
+                    name=cleaned['title'],
+                    children_amount=numbertabs
+                )
 
             # Se hace un Objeto Tab y se asignan los fields arbitrariamente
             # Asignar el form.save() crea un solo elemento Tab
@@ -59,8 +67,8 @@ def tabCreate(request):
                     height=cleaned['height'],
                     border_style=cleaned['border_style'],
                     border_color=cleaned['border_color'],
-                    border_radius=['border_radius'],
-                    style=['style']
+                    border_radius=cleaned['border_radius'],
+                    style=cleaned['style']
                 ).save()
 
             return HttpResponse(
@@ -74,8 +82,7 @@ def tabCreate(request):
     else:
         context['tabForm'] = TabForm()
 
-    return render(request, 'index.html', context, status=400)
-
+    return render(request, 'index.html', context, status=400)    
 
 # View to delete tabs
 def tabEdit(request, tab_id):
@@ -108,8 +115,14 @@ def tabDelete(request, tab_id):
     if request.method == 'GET':
         try:
             tab = Tab.objects.get(tab_id=tab_id)
+            container = TabContainer.objects.get(id=tab.parent.id)
         except ObjectDoesNotExist:
             raise ObjectDoesNotExist()
+
+        container.children_amount -= 1
+        container.save()
         tab.delete()
+        if(container.children_amount == 0):
+            container.delete()
 
     return redirect('tab:tab-list')

@@ -1,11 +1,20 @@
 {% extends 'index.html' %}
 {% block content %}
-<div>
+<div class="row">
+
 	{% for container in list %}
+    <div class="col-lg-1">
+        <div id="{{container.id}}" class="blue-hover plus-button">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </div>
+    </div>
+    <div class="col-lg-11">
 		{% include 'tab.html' with container=container tabs=tabs only %}
+    </div>
 
 	{% endfor %}
 </div>
+
 {% endblock %}
 {% block extraJS %}
 <script language="JavaScript">
@@ -16,6 +25,32 @@ $(document).ready(function () {
         if (opt){
             location.href = $(this).attr('href');
         }
+    });
+
+    $('.plus-button').click(function(event) {
+        var cid = this.id;
+        event.preventDefault();
+
+        var tabForm = $('#tab-create-form').serialize();
+        var csrftoken = getCookie('csrftoken');
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            },
+        });
+        var url = "{% url 'tab:tab-create' 0 %}".replace('0', cid);
+        $.ajax({
+            url: url,
+            data: tabForm,
+            method: "POST",
+        }).done(function(data){
+            window.location.replace(data['redirectTo']);
+        }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.responseText);
+        })
     });
 });
 </script>
