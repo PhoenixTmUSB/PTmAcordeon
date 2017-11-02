@@ -82,7 +82,8 @@ def tabCreate(request, container_id=None):
     else:
         context['tabForm'] = TabForm()
 
-    return render(request, 'index.html', context, status=400)    
+    return render(request, 'index.html', context, status=400)
+
 
 # View to delete tabs
 def tabEdit(request, tab_id):
@@ -124,5 +125,23 @@ def tabDelete(request, tab_id):
         tab.delete()
         if(container.children_amount == 0):
             container.delete()
+
+    return redirect('tab:tab-list')
+
+
+def containerDelete(request, container_id):
+    # Get Container to delete all its content
+    if request.method == 'GET':
+        try:
+            container = TabContainer.objects.get(id=container_id)
+        except ObjectDoesNotExist:
+            raise ObjectDoesNotExist()
+
+        tabSons = Tab.objects.filter(parent=container)
+
+        for ts in tabSons:
+            ts.delete()
+
+        container.delete()
 
     return redirect('tab:tab-list')
