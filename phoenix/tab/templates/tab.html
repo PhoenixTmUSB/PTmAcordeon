@@ -1,22 +1,37 @@
     {% if tabs %}
-    <div class="box" style="border-style:solid;border-color:red;">
-        {% for tab in tabs %}
-                {% if container.id == tab.parent.id %}    
-                <div class="box">
-                <h3 style="display: inline-block;" id="title_{{tab.get_uuid_as_str}}">
-                    {{ tab.title | safe | default:"This is a tab"}}
-                </h3>
-                <p style="display: inline-block;" id="content_{{tab.get_uuid_as_str}}">
-                    {{ tab.content | safe | default:"This is its content"}}
-                </p>                
-                <a href="{% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button">
-                    <div><i class="fa fa-trash-o" style="margin-left: 8px;" aria-hidden="true"></i></div>
-                </a>                          
-                <a href="{% url 'tab:tab-edit' tab_id=tab.get_uuid_as_str %}" class="blue-hover edit-panel-button pull-right">
-                    <div><i class="fa fa-pencil" aria-hidden="true"></i></div>
-                </a> 
-                </div>                      
-                {% endif %}
-        {% endfor %}        
+    <div class="panel">
+        <div class="panel-heading">                                    
+            <p style="display: inline-block;">
+               {{ container.name | safe | default:"This is a tab"}}
+            </p>
+            
+            {% if tabs %}
+            <ul class="nav nav-tabs">
+                {% for tab in tabs %}
+                        {% if container.id == tab.parent.id %}
+                            {% if forloop.first %}
+                                <li role="presentation" class="active">
+                                    <a href="#">{{tab.title | default:"Tab title"}}
+                                        <!-- <a href="{% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button"> -->
+                                            <i class="fa fa-trash-o" style="margin-left: 8px;" aria-hidden="true"></i>
+                                        <!-- </a> -->
+                                    </a>
+                                </li>
+                            {% else %}
+                                <li role="presentation">
+                                    <a href="#">{{tab.title | default:"Tab title"}}
+                                        <!-- <a href="{% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button"> -->
+                                            <i class="fa fa-trash-o" style="margin-left: 8px;" aria-hidden="true"></i>
+                                        <!-- </a> -->
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endif %}
+                {% endfor %}
+            </ul>
+            {% endif %}
+            
+                      
+        </div>       
     </div>
     {% endif %}                
