@@ -7,6 +7,9 @@
         <div id="{{container.id}}" class="blue-hover plus-button">
             <i class="fa fa-plus" aria-hidden="true"></i>
         </div>
+        <a href="{% url 'tab:container-delete' container_id=container.id %}" class="red-hover delete-panel-button pull-right delete-button">
+            <div><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+        </a>        
     </div>
     <div class="col-lg-11">
 		{% include 'tab.html' with container=container tabs=tabs only %}
@@ -21,7 +24,7 @@
 $(document).ready(function () {
     $('.delete-button').click(function(event) {
         event.preventDefault();
-        var opt = confirm("Seguro que quiere eliminar el tab seleccionado?");
+        var opt = confirm("Seguro que quiere eliminar todos los tabs para el bloque seleccionado?");
         if (opt){
             location.href = $(this).attr('href');
         }
