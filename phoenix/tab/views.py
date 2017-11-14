@@ -1,5 +1,7 @@
 import json
 
+from collections import defaultdict
+
 from django.core.exceptions import ObjectDoesNotExist
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -15,6 +17,12 @@ from minesweep.forms import MinesweepForm
 
 
 def tabList(request):
+    containers = defaultdict(list)
+    for result in Tab.objects.values('parent', 'id').order_by('parent', 'id'):
+        container = TabContainer.objects.get(id=result['parent'])
+        containers[container].append(result['id'])
+    print(containers)
+    
     return render(
         request,
         'list_tab.html',
