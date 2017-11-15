@@ -187,10 +187,14 @@ class TestSeleniumUsuarioInicioSesion(StaticLiveServerTestCase):
             title="titulo",
             title_style="color:red",
             content="contenido",
+            content_color="red",
             content_style="color:blue",
             width="100",
             height="50",
             style="color:blue",
+            border_color="blue",
+            border_style="border_style",
+            border_radius="2",
         )
         # acordeon_mdl.save()
 

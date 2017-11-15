@@ -11,9 +11,13 @@ class TestMinesweepEdit(TestCase):
             tooltip_style="tooltip_style",
             content="content",
             content_style="content_style",
+            content_color="content_color",
+            border_style = 'border_style',
+            border_color = 'border_color',
             width="123",
             height="987",
             tooltip_side='bottom',
+            style = "",
         )
 
     def test_minesweep_editar_funcionando_get(self):
@@ -28,7 +32,10 @@ class TestMinesweepEdit(TestCase):
 
         form = MinesweepForm(None, instance=self.minesweep_mdl)
 
-        data = {key: form.initial.get(key, '') + '_12' for key in form.initial.keys()}
+        data = {}
+        for key in form.initial.keys():
+            value_key = form.initial.get(key, '')
+            data[key] = value_key + '_12'
         data['tooltip_side'] = 'right'
 
         response = self.client.post(
