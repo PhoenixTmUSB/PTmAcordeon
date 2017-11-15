@@ -2,3 +2,6 @@ db.*
 *.pyc 
 .idea/
 *.log
+*.sqlite
+master/gitpoller-workdir/
+worker/runtest/
