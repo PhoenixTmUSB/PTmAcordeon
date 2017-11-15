@@ -103,22 +103,22 @@ $ python manage.py test accordion/tests/tests_normales/
 Para utilizar las herramientas de integracion continua de builbot, primero:
 ```
 Para ejecutar el servidor master:
-```
 $ buildbot start master
 ```
-Para crear el o los workers:
 ```
+Para crear el o los workers:
 $ buildbot-worker create-worker *worker-model* *hostname* *worker-name* *worker-pass*
  El nombre y el worker name debe tambier ser configurado en master/master.cfg
 ```
-Para ejecutar el o los workers:
 ```
+Para ejecutar el o los workers:
 $ buildbot-worker start worker
 ```
+
 Crear master y workers segun sea necesario, explicado aca:
 ```
 * http://docs.buildbot.net/current/tutorial/
-```
+``````
 Configurar para cada rama:
 ```
  En master/master.cfg se tienen las secciones de *CHANGESOURCES* y
@@ -127,9 +127,8 @@ cada una ajustar el repo y branch necesarios ademas de agregar los *test nuevos*
 en la seccion de *BUILDERS* asi como cualquier otro worker necesario para
 correrlos en la misma seccion
 ```
+
 Cualquier cambio a la configuracion de master.cfg debe ser seguido de:
 ```
 $ buildbot reconfig master
 ```
-
-
