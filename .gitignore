@@ -1,5 +1,8 @@
 db.*
 *.pyc 
 .idea/
-*__pycache__*
-*__pycache__/*.pyc
+*.log
+*.sqlite
+master/*.sqlite
+master/gitpoller-workdir/
+worker/runtests/
