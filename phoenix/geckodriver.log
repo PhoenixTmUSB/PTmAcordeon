@@ -2114,3 +2114,276 @@ MarionetteComponent.prototype.handle@resource://gre/components/marionette.js:112
 [Child 11407, Chrome_ChildThread] WARNING: pipe error (20): Conexión reinicializada por la máquina remota: file /build/firefox-PP4aF6/firefox-57.0~b12+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
 [Child 11407, Chrome_ChildThread] WARNING: pipe error (3): Conexión reinicializada por la máquina remota: file /build/firefox-PP4aF6/firefox-57.0~b12+build2/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
 >>>>>>> 83bd0df579fb58dd2ff22040df980acc7fe6d962
+1510768426215	geckodriver	INFO	geckodriver 0.19.0
+1510768426241	geckodriver	INFO	Listening on 127.0.0.1:43159
+1510768427309	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.clBaOtoT3TPs"
+1510768427513	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///usr/lib/firefox/omni.ja!/components/addonManager.js:65
+1510768427891	Marionette	INFO	Enabled via --marionette
+1510768429048	Marionette	INFO	Listening on port 38355
+1510768429152	Marionette	WARN	TLS certificate errors will be ignored for this session
+1510768429191	Marionette	DEBUG	Register listener.js for window 2147483649
+1510768429237	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1510768429289	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1510768429289	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1510768429545	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:38513/acordeon/"
+1510768429583	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:38513/acordeon/"
+1510768429808	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:38513/acordeon/"
+1510768429861	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:38513/acordeon/"
+1510768429861	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:38513/acordeon/"
+1510768429973	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:38513/acordeon/"
+1510768429976	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:38513/acordeon/"
+1510768430182	Marionette	INFO	New connections will no longer be accepted
+[Child 4770] WARNING: pipe error (19): Connection reset by peer: file /build/firefox-9cfKiA/firefox-56.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1510768430704	geckodriver	INFO	geckodriver 0.19.0
+1510768430708	geckodriver	INFO	Listening on 127.0.0.1:44995
+1510768431796	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.nNsmb7rKu2Fo"
+1510768431999	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///usr/lib/firefox/omni.ja!/components/addonManager.js:65
+1510768432373	Marionette	INFO	Enabled via --marionette
+1510768433515	Marionette	INFO	Listening on port 42429
+1510768433685	Marionette	WARN	TLS certificate errors will be ignored for this session
+1510768433728	Marionette	DEBUG	Register listener.js for window 2147483649
+1510768433758	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1510768433795	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1510768433795	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1510768434032	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:60771/"
+1510768434093	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:60771/"
+1510768434317	Marionette	INFO	New connections will no longer be accepted
+[Child 4889] WARNING: pipe error (18): Connection reset by peer: file /build/firefox-9cfKiA/firefox-56.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 4889] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-9cfKiA/firefox-56.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1510768434585	geckodriver	INFO	geckodriver 0.19.0
+1510768434591	geckodriver	INFO	Listening on 127.0.0.1:34513
+1510768435677	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.pS87hlzhCHSs"
+1510768435887	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///usr/lib/firefox/omni.ja!/components/addonManager.js:65
+1510768436274	Marionette	INFO	Enabled via --marionette
+1510768437423	Marionette	INFO	Listening on port 39821
+1510768437493	Marionette	WARN	TLS certificate errors will be ignored for this session
+1510768437532	Marionette	DEBUG	Register listener.js for window 2147483649
+1510768437702	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1510768437737	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1510768437737	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1510768438030	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:50575/"
+1510768438042	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:50575/"
+1510768438335	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768438682	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768443952	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:50575/"
+1510768443997	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:50575/"
+1510768443997	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:50575/"
+1510768444111	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:50575/"
+1510768444114	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:50575/"
+1510768444366	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768444775	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768445005	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:50575/"
+1510768445043	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:50575/"
+1510768445044	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:50575/"
+1510768445182	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:50575/"
+1510768445187	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:50575/"
+1510768445464	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768445820	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768446032	Marionette	INFO	New connections will no longer be accepted
+[Child 5003] WARNING: pipe error (34): Connection reset by peer: file /build/firefox-9cfKiA/firefox-56.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 5003] WARNING: pipe error (19): Connection reset by peer: file /build/firefox-9cfKiA/firefox-56.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 5003] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-9cfKiA/firefox-56.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1510768544787	geckodriver	INFO	geckodriver 0.19.0
+1510768544793	geckodriver	INFO	Listening on 127.0.0.1:60339
+1510768545885	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.OM2nJFc0gihG"
+1510768546082	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///usr/lib/firefox/omni.ja!/components/addonManager.js:65
+1510768546466	Marionette	INFO	Enabled via --marionette
+1510768547590	Marionette	INFO	Listening on port 35261
+1510768547771	Marionette	WARN	TLS certificate errors will be ignored for this session
+1510768547811	Marionette	DEBUG	Register listener.js for window 2147483649
+1510768548036	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1510768548087	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1510768548088	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1510768548441	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768548454	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768548546	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768548581	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768548583	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768548722	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768548725	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768548885	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768548920	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768548921	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768549063	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768549066	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768551310	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768551359	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768551359	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/578c7ffa-a9dc-434f-90fd-91586d4c0900"
+1510768551483	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768551486	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768551545	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768554595	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768554595	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768554749	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768554753	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768554883	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768554920	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768554920	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768555068	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768555071	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768557268	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768557309	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768557310	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/5606a78d-3972-40f4-88ab-06de4e18bd5e"
+1510768557452	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768557456	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768557525	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768559914	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768559915	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768560056	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768560059	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768560205	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768560249	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768560250	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768560395	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768560400	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768562605	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768562644	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768562645	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/2ba35e84-afb8-439c-b72c-50321793f85a"
+1510768562775	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768562783	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768562844	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768565245	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768565246	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768565384	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768565388	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768565535	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768565578	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768565578	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768565708	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768565710	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768567725	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768567762	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768567762	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/ad736833-b3ce-4a6e-96f8-50e92dfd6bd5"
+1510768567894	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768567900	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768568125	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768570572	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768570573	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768570709	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768570713	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768570781	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768570817	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768570817	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768570952	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768570955	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768571316	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768571353	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768571397	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768571398	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768571536	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768571541	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768573906	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768576814	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768576815	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/0e132636-77eb-4d0b-9a99-b6af74086455"
+1510768576939	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/crear-minesweep/"
+1510768576942	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/crear-minesweep/"
+1510768577218	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768577709	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768577920	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/crear-minesweep/"
+1510768577957	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/crear-minesweep/"
+1510768577958	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/crear-minesweep/"
+1510768578081	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768578083	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768578579	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768578623	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768578624	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768578742	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768578746	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768578808	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768578844	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768578845	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768578993	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768578996	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768579099	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768579138	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768579140	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768579277	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768579280	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768581469	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768581510	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768581511	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/editar-minesweep/0b3b7c83-7298-4561-81c0-a35ca04c5584"
+1510768581667	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768581671	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768583013	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768585578	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/eliminar-minesweep/3c1dc8ac-b4a6-4648-a4d3-3e5bcf0584f8"
+1510768585597	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/eliminar-minesweep/3c1dc8ac-b4a6-4648-a4d3-3e5bcf0584f8"
+1510768585597	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/eliminar-minesweep/3c1dc8ac-b4a6-4648-a4d3-3e5bcf0584f8"
+1510768585751	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/crear-minesweep/"
+1510768585755	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/crear-minesweep/"
+1510768586016	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768586500	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768586648	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/crear-minesweep/"
+1510768586692	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/crear-minesweep/"
+1510768586693	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/crear-minesweep/"
+1510768586825	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768586828	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768587009	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768587028	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768587029	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768587146	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/crear-minesweep/"
+1510768587148	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/crear-minesweep/"
+1510768587405	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768587877	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768588024	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/crear-minesweep/"
+1510768588066	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/crear-minesweep/"
+1510768588067	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/crear-minesweep/"
+1510768588214	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768588217	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768588395	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768588411	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768588411	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768588551	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/crear-minesweep/"
+1510768588554	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/crear-minesweep/"
+1510768588811	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768589282	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768589414	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/crear-minesweep/"
+1510768589454	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/crear-minesweep/"
+1510768589455	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/crear-minesweep/"
+1510768589613	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768589616	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768589831	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768589853	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768589854	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768589992	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/crear-minesweep/"
+1510768589996	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/crear-minesweep/"
+1510768590299	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768590791	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768590941	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/crear-minesweep/"
+1510768590984	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/crear-minesweep/"
+1510768590985	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/crear-minesweep/"
+1510768591133	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768591136	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768591342	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/minesweep/"
+1510768591365	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/minesweep/"
+1510768591366	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/minesweep/"
+1510768591492	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/crear-minesweep/"
+1510768591496	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/crear-minesweep/"
+1510768591749	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768592315	Marionette	DEBUG	Canceled page load listener because no navigation has been detected
+1510768592450	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:46857/crear-minesweep/"
+1510768592492	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:46857/crear-minesweep/"
+1510768592493	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:46857/crear-minesweep/"
+1510768592623	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:46857/minesweep/"
+1510768592625	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:46857/minesweep/"
+1510768592826	Marionette	INFO	New connections will no longer be accepted
+[Child 5220] WARNING: pipe error (18): Connection reset by peer: file /build/firefox-9cfKiA/firefox-56.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+[Child 5220] WARNING: pipe error (3): Connection reset by peer: file /build/firefox-9cfKiA/firefox-56.0+build6/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 353
+1510768592991	geckodriver	INFO	geckodriver 0.19.0
+1510768592995	geckodriver	INFO	Listening on 127.0.0.1:57865
+1510768594081	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-profile" "/tmp/rust_mozprofile.gp2kc39SnD6Q"
+1510768594307	addons.xpi	WARN	Error parsing extensions state: [Exception... "Component returned failure code: 0x80520012 (NS_ERROR_FILE_NOT_FOUND) [amIAddonManagerStartup.readStartupData]"  nsresult: "0x80520012 (NS_ERROR_FILE_NOT_FOUND)"  location: "JS frame :: resource://gre/modules/addons/XPIProvider.jsm :: loadExtensionState :: line 1554"  data: no] Stack trace: loadExtensionState()@resource://gre/modules/addons/XPIProvider.jsm:1554 < getInstallState()@resource://gre/modules/addons/XPIProvider.jsm:1589 < checkForChanges()@resource://gre/modules/addons/XPIProvider.jsm:3109 < startup()@resource://gre/modules/addons/XPIProvider.jsm:2188 < callProvider()@resource://gre/modules/AddonManager.jsm:269 < _startProvider()@resource://gre/modules/AddonManager.jsm:739 < startup()@resource://gre/modules/AddonManager.jsm:906 < startup()@resource://gre/modules/AddonManager.jsm:3090 < observe()@jar:file:///usr/lib/firefox/omni.ja!/components/addonManager.js:65
+1510768594701	Marionette	INFO	Enabled via --marionette
+1510768596023	Marionette	INFO	Listening on port 41567
+1510768596182	Marionette	WARN	TLS certificate errors will be ignored for this session
+1510768596225	Marionette	DEBUG	Register listener.js for window 2147483649
+1510768596251	Marionette	DEBUG	Received DOM event "beforeunload" for "about:blank"
+1510768596300	Marionette	DEBUG	Received DOM event "pagehide" for "about:blank"
+1510768596300	Marionette	DEBUG	Received DOM event "unload" for "about:blank"
+1510768596595	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:45051/minesweep/"
+1510768596667	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:45051/minesweep/"
+1510768596857	Marionette	DEBUG	Received DOM event "beforeunload" for "http://localhost:45051/minesweep/"
+1510768596898	Marionette	DEBUG	Received DOM event "pagehide" for "http://localhost:45051/minesweep/"
+1510768596898	Marionette	DEBUG	Received DOM event "unload" for "http://localhost:45051/minesweep/"
+1510768597052	Marionette	DEBUG	Received DOM event "DOMContentLoaded" for "http://localhost:45051/minesweep/"
+1510768597055	Marionette	DEBUG	Received DOM event "pageshow" for "http://localhost:45051/minesweep/"
+1510768597228	Marionette	INFO	New connections will no longer be accepted
