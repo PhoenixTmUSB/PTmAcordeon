@@ -126,7 +126,13 @@ cada una ajustar el repo y branch necesarios ademas de agregar los *test nuevos*
 en la seccion de *BUILDERS* asi como cualquier otro worker necesario para
 correrlos en la misma seccion
 
- Cualquier cambio a la configuracion de master.cfg debe ser seguido de:
+### Cualquier cambio a la configuracion de master.cfg debe ser seguido de:
 ```
 $ buildbot reconfig master
+$ buildbot restart master
+```
+
+### Cualquier cambio a la configuracion de algun worker:
+```
+$ buildbot-worker restart worker-name
 ```
