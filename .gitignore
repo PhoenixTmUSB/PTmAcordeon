@@ -3,5 +3,6 @@ db.*
 .idea/
 *.log
 *.sqlite
+master/*.sqlite
 master/gitpoller-workdir/
-worker/runtest/
+worker/runtests/
