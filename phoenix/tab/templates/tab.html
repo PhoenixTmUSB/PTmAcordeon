@@ -16,6 +16,11 @@
                             <a href="#{{tab.id}}" aria-controls="{{tab.id}}" role="tab" data-toggle="tab">
                                 {{tab.title | default:"Tab title"}}
                             </a>
+
+                            <a href="{% url 'tab:tab-edit' tab_id=tab.get_uuid_as_str %}" class="blue-hover pull-left">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            
                             <a href="{% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}" class="red-hover delete-panel-button delete-button pull-right">
                                 <i class="fa fa-trash-o"></i>
                             </a>
