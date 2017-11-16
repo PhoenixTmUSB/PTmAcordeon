@@ -12,6 +12,7 @@ class TabContainer(models.Model):
         blank=True
     )
     children_amount = models.IntegerField(
+        u'Cantidad de pestañas',
         default=1
     )
 

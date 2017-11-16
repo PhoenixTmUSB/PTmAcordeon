@@ -17,22 +17,24 @@ from minesweep.forms import MinesweepForm
 
 
 def tabList(request):
-    containers = defaultdict(list)
+    containers_dict = defaultdict(list)
     for result in Tab.objects.values('parent', 'id').order_by('parent', 'id'):
         container = TabContainer.objects.get(id=result['parent'])
-        containers[container].append(result['id'])
-    print(containers)
+        tab = Tab.objects.get(id=result['id'])
+        containers_dict[container].append(tab)
+
+    containers = []
+    for container, tabs in containers_dict.items():
+        containers.append([container, tabs])
     
     return render(
         request,
         'list_tab.html',
         context={
-            'list': TabContainer.objects.order_by('id'),
-            # Tabs ordenadas por id
-            'tabs': Tab.objects.order_by('id'),
             'accordionForm': AccordionForm,
             'minesweepForm': MinesweepForm,
             'tabForm': TabForm,
+            'containers': containers,
         }
     )
 
