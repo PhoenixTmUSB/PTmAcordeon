@@ -10,10 +10,19 @@
         </style>            
         <div class="panel-group">
             <div class="panel panel-default">
-                    <div class="panel-heading" role="tab" id="tab-{{tab.get_uuid_as_str}}">
-                            <p> {{ tab.content | safe | default:"Paragraph" }} </p>
-                    </div>
+                <div class="panel-heading" role="tab" id="tab-{{tab.get_uuid_as_str}}">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active">
+                            <a href="#{{tab.id}}" aria-controls="{{tab.id}}" role="tab" data-toggle="tab">
+                                {{tab.title | default:"Tab title"}}
+                            </a>
+                        </li>
+                    </ul>
 
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="{{tab.id}}"><p>{{tab.content}}</p></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
