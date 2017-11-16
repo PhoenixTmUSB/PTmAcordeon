@@ -1,37 +1,40 @@
-    {% if tabs %}
-    <div class="panel">
-        <div class="panel-heading">                                    
-            <p style="display: inline-block;">
-               {{ container.name | safe | default:"This is a tab"}}
-            </p>
-            
-            {% if tabs %}
+<div class="panel">
+    <div class="panel-heading">
+        <p style="display: inline-block;">
+           {{ container.name | safe | default:"This is a tab"}}
+        </p>
+
+        {% if tabs %}
+            <!-- Nav tabs -->
             <ul class="nav nav-tabs">
                 {% for tab in tabs %}
-                        {% if container.id == tab.parent.id %}
-                            {% if forloop.first %}
-                                <li role="presentation" class="active">
-                                    <a href="#">{{tab.title | default:"Tab title"}}
-                                        <!-- <a href="{% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button"> -->
-                                            <i class="fa fa-trash-o" style="margin-left: 8px;" aria-hidden="true"></i>
-                                        <!-- </a> -->
-                                    </a>
-                                </li>
-                            {% else %}
-                                <li role="presentation">
-                                    <a href="#">{{tab.title | default:"Tab title"}}
-                                        <!-- <a href="{% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}" class="red-hover delete-panel-button pull-right delete-button"> -->
-                                            <i class="fa fa-trash-o" style="margin-left: 8px;" aria-hidden="true"></i>
-                                        <!-- </a> -->
-                                    </a>
-                                </li>
-                            {% endif %}
-                        {% endif %}
+                    {% if forloop.first %}
+                        <li role="presentation" class="active">
+                    {% else %}
+                        <li role="presentation">
+                    {% endif %}
+                            <a href="#{{tab.id}}" aria-controls="{{tab.id}}" role="tab" data-toggle="tab">
+                                {{tab.title | default:"Tab title"}}
+                            </a>
+                            <a href="{% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}" class="red-hover delete-panel-button delete-button pull-right">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </li>
                 {% endfor %}
             </ul>
-            {% endif %}
-            
-                      
-        </div>       
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                {% for tab in tabs %}
+                    {% if forloop.first %}
+                    <div role="tabpanel" class="tab-pane active" id="{{tab.id}}"><p>{{tab.content}}</p></div>
+                    {% else %}
+                    <div role="tabpanel" class="tab-pane" id="{{tab.id}}"><p>{{tab.content}}</p></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No hay tabs en este container...</p>
+        {% endif %}
     </div>
-    {% endif %}                
+</div>              

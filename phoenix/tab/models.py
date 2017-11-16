@@ -8,9 +8,11 @@ class TabContainer(models.Model):
     name = models.CharField(
         u'Nombre del container',
         max_length=100,
+        null=True,
         blank=True
     )
     children_amount = models.IntegerField(
+        u'Cantidad de pestañas',
         default=1
     )
 
