@@ -2,6 +2,8 @@
 import uuid
 from django.contrib.auth.models import User
 from django.db import models
+from django.template.loader import render_to_string
+
 
 
 class BaseAccordionManager(models.Manager):
@@ -30,24 +32,16 @@ class Project(models.Model):
     )
 
 
-class AccordionAbstract(models.Model):
-    accordion_id = models.UUIDField(
-        u'Id del acordeon',
-        default=uuid.uuid4,
-        editable=False
-    )
-
-    title = models.CharField(
-        u'Título',
-        max_length=50
-    )
-    title_style = models.TextField(
-        u'Estilos del Título',
+class PatronAbstract(models.Model):
+    """docstring for ClassName"""
+    content = models.TextField(
+        u'Contenido',
         blank=True,
         null=True
     )
-    content = models.TextField(
-        u'Contenido',
+    content_color = models.CharField(
+        u'Color del contenido',
+        max_length=50,
         blank=True,
         null=True
     )
@@ -55,6 +49,24 @@ class AccordionAbstract(models.Model):
         u'Estilos del contenido',
         blank=True,
         null=True
+    )
+    border_style = models.TextField(
+        u'Definir tipo de borde',
+        blank=True,
+        null=True
+    )
+    border_color = models.CharField(
+        u'Color del borde',
+        max_length=50,
+        blank=True,
+        null=True
+    )
+    border_radius = models.CharField(
+        u'Radio del borde (px)',
+        max_length=50,
+        blank=True,
+        null=True,
+        default='0'
     )
     width = models.CharField(
         u'Ancho (%)',
@@ -71,7 +83,7 @@ class AccordionAbstract(models.Model):
         default='30'
     )
     style = models.TextField(
-        u'Estilos generales',
+        u'Extra CSS',
         blank=True,
         null=True
     )
@@ -79,14 +91,35 @@ class AccordionAbstract(models.Model):
     class Meta:
         abstract = True
 
+    def toHtml(self, template_name, var_name):
+        return render_to_string(template_name, context={
+            var_name: self,
+        }
+    )
 
-class Accordion(AccordionAbstract):
+
+class Accordion(PatronAbstract):
     parent = models.ForeignKey(
         'self',
         null=True,
         blank=True,
         related_name='panels'
     )
+    accordion_id = models.UUIDField(
+        u'Id del acordeon',
+        default=uuid.uuid4,
+        editable=False
+    )
+
+    title = models.CharField(
+        u'Título',
+        max_length=50
+    )
+    title_style = models.TextField(
+        u'Estilos del Título',
+        blank=True,
+        null=True
+    )    
 
     # objects returns accordions that have no parent.
     # all_objects returns all accordions, with out without parents.

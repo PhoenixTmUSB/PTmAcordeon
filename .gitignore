@@ -6,3 +6,5 @@ db.*
 master/*.sqlite
 master/gitpoller-workdir/
 worker/runtests/
+*__pycache__*
+*__pycache__/*.pyc

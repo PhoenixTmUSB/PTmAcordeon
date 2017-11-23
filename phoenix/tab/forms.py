@@ -3,17 +3,22 @@ from django import forms
 from .models import *
 
 
-class AccordionForm(forms.ModelForm):
-    panels = forms.IntegerField(label='Paneles extra', min_value=0, required=False, initial=0)
+class TabForm(forms.ModelForm):
+
+    number_tabs = forms.IntegerField(
+        label='Numero de Tabs',
+        min_value=1,
+        required=False,
+        initial=1
+    )
 
     class Meta:
-        model = Accordion
+        model = Tab
         fields = [
             'title', 'title_style',
             'content', 'content_style', 'content_color',
             'border_style', 'border_color', 'border_radius',
-            'width', 'height', 'style',
-            'panels',
+            'width', 'height', 'style'
         ]
 
         widgets = {

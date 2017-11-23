@@ -17,13 +17,17 @@
                             {% bootstrap_field accordionForm.title %}
                             {% bootstrap_field accordionForm.title_style %}
                             {% bootstrap_field accordionForm.content %}
+                            {% bootstrap_field accordionForm.content_color %}
                             {% bootstrap_field accordionForm.content_style %}
+                            {% bootstrap_field accordionForm.panels %}
                         </div>
                         <div class="col-lg-6">
                             {% bootstrap_field  accordionForm.width %}
                             {% bootstrap_field accordionForm.height %}
-                            {% bootstrap_field accordionForm.panels %}
                             {% bootstrap_field accordionForm.style %}
+                            {% bootstrap_field accordionForm.border_style %}
+                            {% bootstrap_field accordionForm.border_color %}
+                            {% bootstrap_field accordionForm.border_radius %}
                         </div>
                     </div>
                     <button type="submit" class="save btn btn-default" id="accordion-create-submit">Crear</button>

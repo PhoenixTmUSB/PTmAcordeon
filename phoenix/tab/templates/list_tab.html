@@ -1,0 +1,61 @@
+{% extends 'index.html' %}
+{% block content %}
+<div class="row">
+
+	{% for container_tabs in containers %}
+    <div class="col-lg-1">
+        <div id="{{container_tabs.0.id}}" class="blue-hover plus-button">
+            <i class="fa fa-plus" aria-hidden="true"></i>
+        </div>
+        
+        <a href="{% url 'tab:container-delete' container_id=container_tabs.0.id %}" class="red-hover delete-panel-button pull-right delete-button">
+            <div><i class="fa fa-trash-o" aria-hidden="true"></i></div>
+        </a>
+    </div>
+    <div class="col-lg-11">
+		{% include 'tab.html' with container=container_tabs.0 tabs=container_tabs.1 only %}
+    </div>
+
+	{% endfor %}
+</div>
+
+{% endblock %}
+{% block extraJS %}
+<script language="JavaScript">
+$(document).ready(function () {
+    $('.delete-button').click(function(event) {
+        event.preventDefault();
+        var opt = confirm("Seguro que quiere eliminar todos los tabs para el bloque seleccionado?");
+        if (opt){
+            location.href = $(this).attr('href');
+        }
+    });
+
+    $('.plus-button').click(function(event) {
+        var cid = this.id;
+        event.preventDefault();
+
+        var tabForm = $('#tab-create-form').serialize();
+        var csrftoken = getCookie('csrftoken');
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                }
+            },
+        });
+        var url = "{% url 'tab:tab-create' 0 %}".replace('0', cid);
+        $.ajax({
+            url: url,
+            data: tabForm,
+            method: "POST",
+        }).done(function(data){
+            window.location.replace(data['redirectTo']);
+        }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest.responseText);
+        })
+    });
+});
+</script>
+{% endblock %}

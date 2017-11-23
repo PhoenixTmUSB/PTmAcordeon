@@ -1,0 +1,49 @@
+<div class="panel">
+    <div class="panel-heading">
+        <p style="display: inline-block;">
+           {{ container.name | safe | default:"This is a tab"}}
+        </p>
+
+        {% if tabs %}
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs">
+                {% for tab in tabs %}
+                    {% if forloop.first %}
+                        <li role="presentation" class="active">
+                    {% else %}
+                        <li role="presentation">
+                    {% endif %}
+                            <a href="#{{tab.id}}" aria-controls="{{tab.id}}"
+                             role="tab" data-toggle="tab"
+                             style="{{tab.title_style}}
+                                border-style: {{tab.border_style}};
+                                border-color:{{tab.border_color}};
+                                border-radius: {{tab.border_radius}}px;">
+                                {{tab.title | default:"Tab title"}}
+                            </a>
+                            <a href="{% url 'tab:tab-edit' tab_id=tab.get_uuid_as_str %}" class="blue-hover pull-left">
+                                <i class="fa fa-pencil"></i>
+                            </a>
+                            
+                            <a href="{% url 'tab:tab-delete' tab_id=tab.get_uuid_as_str %}" class="red-hover delete-panel-button delete-button pull-right">
+                                <i class="fa fa-trash-o"></i>
+                            </a>
+                        </li>
+                {% endfor %}
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                {% for tab in tabs %}
+                    {% if forloop.first %}
+                    <div role="tabpanel" class="tab-pane active" id="{{tab.id}}"><p style="color: {{tab.content_color}}; {{tab.content_style}}">{{tab.content}}</p></div>
+                    {% else %}
+                    <div role="tabpanel" class="tab-pane" id="{{tab.id}}"><p style="color: {{tab.content_color}}; {{tab.content_style}}" class="tab-content-text">{{tab.content}}</p></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No hay tabs en este container...</p>
+        {% endif %}
+    </div>
+</div>

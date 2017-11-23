@@ -67,7 +67,13 @@
                         <li class="blue-hover" data-toggle="modal" data-target="#minesweep-create-modal">
                             <i class="fa fa-plus" aria-hidden="true"></i> Crear
                         </li>
-                        <a class="hover" href="{% url 'minesweep:minesweep-list' %}"><li class="blue-hover"><i class="fa fa-list" aria-hidden="true"></i> Lista</li></a>                        
+                        <a class="hover" href="{% url 'minesweep:minesweep-list' %}"><li class="blue-hover"><i class="fa fa-list" aria-hidden="true"></i> Lista</li></a>  
+
+                        <li><i class="fa fa-bars" aria-hidden="true"></i> Tab</li>
+                        <li class="blue-hover" data-toggle="modal" data-target="#tab-create-modal">
+                            <i class="fa fa-plus" aria-hidden="true"></i> Crear
+                        </li>
+                        <a class="hover" href="{% url 'tab:tab-list' %}"><li class="blue-hover"><i class="fa fa-list" aria-hidden="true"></i> Lista</li></a> 
                     </ul>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-10 col-xs-10 body-tools">
@@ -110,6 +116,7 @@
 
         {% include 'create_accordion.html' %}
         {% include 'create_minesweep.html' %}
+        {% include 'create_tab.html' %}
 
         <!-- BEGIN # MODAL LOGIN -->
         <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="modalLoginLabel"
@@ -223,6 +230,8 @@
         <script src="{% static 'js/jquery-ui.min.js' %}"></script>
         <script src="{% static 'js/jquery.ui.ruler.js' %}"></script>
         <script src="{% static 'js/csrf_tokens.js' %}"></script>
+        <script src="{% static 'js/tooltipster.bundle.min.js' %}"></script>
+
 
         {#   AGREGA VARIABLES QUE DEPENDEN DEL SERVIDOR AL SCRIPT EXTERNO     #}
         {#   En WP se llama localizar scripts     #}
@@ -305,7 +314,32 @@
                     }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
                         console.log(XMLHttpRequest.responseText);
                     })
-                })                
+                })    
+
+                $("#tab-create-submit").on('click', function(e){
+                    e.preventDefault();
+
+                    var tabForm = $('#tab-create-form').serialize();
+                    var csrftoken = getCookie('csrftoken');
+
+                    $.ajaxSetup({
+                        beforeSend: function(xhr, settings) {
+                            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+                            }
+                        },
+                    });
+
+                    $.ajax({
+                        url: "{% url 'tab:tab-create'%}",
+                        data: tabForm,
+                        method: "POST",
+                    }).done(function(data){
+                        window.location.replace(data['redirectTo']);
+                    }).fail(function(XMLHttpRequest, textStatus, errorThrown) {
+                        console.log(XMLHttpRequest.responseText);
+                    })
+                })  
             });
         </script>
 
@@ -321,5 +355,6 @@
 
         {% block extraJS %}
         {% endblock %}
+
     </body>
 </html>
