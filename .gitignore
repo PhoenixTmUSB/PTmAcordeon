@@ -3,8 +3,7 @@ db.*
 .idea/
 *.log
 *.sqlite
-master/*.sqlite
-master/gitpoller-workdir/
-worker/runtests/
+master/
+worker/
 *__pycache__*
 *__pycache__/*.pyc
