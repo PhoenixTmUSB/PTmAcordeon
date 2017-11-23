@@ -1,0 +1,34 @@
+<hr>
+<label>Preview: </label>
+<div class="row">
+    <div class="col-lg-11">
+        <!-- Print parent panel -->
+        <style type="text/css">
+            #tab-{{tab.get_uuid_as_str}} {
+                {{ tab.content_style }};
+            }
+        </style>            
+        <div class="panel-group">
+            <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="tab-{{tab.get_uuid_as_str}}">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active">
+                            <a href="#{{tab.id}}" aria-controls="{{tab.id}}"
+                             role="tab" data-toggle="tab"
+                             style="{{tab.title_style}}
+                                border-style: {{tab.border_style}};
+                                border-color: {{tab.border_color}};
+                                border-radius: {{tab.border_radius}}px;">
+                                {{tab.title | default:"Tab title"}}
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="{{tab.id}}"><p style="color: {{tab.content_color}}; {{tab.content_style}}">{{tab.content}}</p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

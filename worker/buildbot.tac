@@ -3,7 +3,7 @@ import os
 from buildbot_worker.bot import Worker
 from twisted.application import service
 
-basedir = '/home/gabillo/work/PhoenixTm/PTmAcordeon/worker'
+basedir = '/home/edgar/Projects/Universidad/software2/ProyectoEntregas/PTmAcordeon/worker'
 rotateLength = 10000000
 maxRotatedFiles = 10
 
@@ -29,8 +29,8 @@ except ImportError:
 
 buildmaster_host = 'localhost'
 port = 9989
-workername = 'phoenix-worker'
-passwd = 'phoenix123'
+workername = 'example-worker'
+passwd = 'pass'
 keepalive = 600
 umask = None
 maxdelay = 300

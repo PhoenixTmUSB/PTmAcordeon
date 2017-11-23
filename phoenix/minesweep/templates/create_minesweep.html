@@ -16,6 +16,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             {% bootstrap_field minesweepForm.content %}
+                            {% bootstrap_field minesweepForm.content_color %}
                             {% bootstrap_field minesweepForm.content_style %}
                             {% bootstrap_field minesweepForm.tooltip %}
                             {% bootstrap_field minesweepForm.tooltip_side %}
@@ -24,6 +25,10 @@
                         <div class="col-lg-6">
                             {% bootstrap_field minesweepForm.width %}
                             {% bootstrap_field minesweepForm.height %}
+                            {% bootstrap_field minesweepForm.border_style %}
+                            {% bootstrap_field minesweepForm.border_color %}
+                            {% bootstrap_field minesweepForm.border_radius %}
+                            {% bootstrap_field minesweepForm.style %}
                         </div>
                     </div>
                     <button type="submit" class="save btn btn-default" id="minesweep-create-submit">Crear</button>

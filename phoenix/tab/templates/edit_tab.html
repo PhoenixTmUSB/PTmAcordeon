@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+{% load static bootstrap3 %}
+{% block content %} 
+<div class="col-md-5">
+    <form id="tab-create-form" method="POST" class="post-form" novalidate>
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-lg-12">
+                {% bootstrap_field tabFormEdit.title %}
+                {% bootstrap_field tabFormEdit.title_style %}                        
+                {% bootstrap_field tabFormEdit.content %}
+                {% bootstrap_field tabFormEdit.content_color %}                            
+                {% bootstrap_field tabFormEdit.content_style %}
+                {% bootstrap_field tabFormEdit.border_style %}
+                {% bootstrap_field tabFormEdit.border_color %}
+                {% bootstrap_field tabFormEdit.border_radius %}
+                {% bootstrap_field tabFormEdit.style %}
+            </div>        
+        </div>
+        <button type="submit" class="save btn btn-default" id="tab-edit-submit">Editar</button>
+    </form>
+</div>
+<div class="col-md-7">
+ {% include 'tab_preview.html' %}
+</div>
+
+{% endblock %}
