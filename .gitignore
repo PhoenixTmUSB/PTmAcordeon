@@ -3,3 +3,6 @@ db.*
 .idea/
 *__pycache__*
 *__pycache__/*.pyc
+master/
+worker/
+
