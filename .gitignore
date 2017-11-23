@@ -3,7 +3,7 @@ db.*
 .idea/
 *.log
 *.sqlite
-master/
-worker/
+./master/
+./worker/
 *__pycache__*
 *__pycache__/*.pyc

@@ -3,7 +3,7 @@ import os
 from twisted.application import service
 from buildbot.master import BuildMaster
 
-basedir = '/home/edgar/Projects/Universidad/software2/ProyectoEntregas/PTmAcordeon/master'
+basedir = '/home/gabillo/work/PhoenixTm/PTmAcordeon/master'
 rotateLength = 10000000
 maxRotatedFiles = 10
 configfile = 'master.cfg'
