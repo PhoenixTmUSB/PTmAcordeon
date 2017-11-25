@@ -101,6 +101,10 @@ $ python manage.py test accordion/tests/tests_normales/
 ## Integrar Con Buildbot
 
 ### Para utilizar las herramientas de integracion continua de builbot, primero:
+Para crear el servidor master:
+```
+$ buildbot create-master *directorio*
+```
  Para ejecutar el servidor master:
 ```
 $ buildbot start master
@@ -114,6 +118,8 @@ $ buildbot-worker create-worker *worker-model* *hostname* *worker-name* *worker-
 ```
 $ buildbot-worker start worker
 ```
+###Para configurar master y workers:
+ Revisar la carpeta buildbot_files y sus directorios internos.
 
  Crear master y workers segun sea necesario, explicado aca:
 * http://docs.buildbot.net/current/tutorial/
